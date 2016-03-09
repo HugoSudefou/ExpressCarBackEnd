@@ -10,6 +10,7 @@ var routes = require('./app/routes/index');
 var users = require('./app/routes/users');
 
 var app = express();
+var server = require('http').createServer(app);
 
 //sert pour la gestion des cookies dans les sessions
 /*app.use(session({
@@ -68,4 +69,5 @@ mongoose.connect('mongodb://localhost/bdd', function(err) {
   if (err) { throw err; }
 });
 
+server.listen(8000);
 module.exports = app;
