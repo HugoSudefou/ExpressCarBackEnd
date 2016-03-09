@@ -1,6 +1,6 @@
 require('../models/User');
 var mongoose = require('mongoose'),
-User = mongoose.model('user');
+User = mongoose.model('User');
 
 var Users = {
 	create : function(req, res) {
@@ -15,13 +15,14 @@ var Users = {
 			address : req.body.address,
 
 		});
-		u.save(function(req, res){
+		u.save(function(err){
 			if(err){
 				throw err;
 			}
 			console.log("L'User a été crée!!!!!!!!");
 			console.log(u);
 		});
+		res.send("Tu es inscrit ;)");
 	}
 }; 
 
