@@ -69,5 +69,6 @@ mongoose.connect('mongodb://localhost/bdd', function(err) {
   if (err) { throw err; }
 });
 
+//listen
 server.listen(8000);
 module.exports = app;
