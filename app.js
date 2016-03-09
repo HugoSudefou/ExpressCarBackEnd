@@ -4,16 +4,16 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+
+var routes = require('./app/routes/index');
+var users = require('./app/routes/users');
 
 var app = express();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'app/views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
@@ -57,12 +57,18 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+var server = app.listen(8000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  console.log('Example app listening at http://%s:%s', host, port);
+});
 
-io.socket.on()
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+mongoose.connect('mongodb://localhost/bdd', function(err) {
+  if (err) { throw err; }
+});
 
 module.exports = app;
