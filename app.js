@@ -4,13 +4,19 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session')
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var routes = require('./app/routes/index');
+var users = require('./app/routes/users');
 
 var app = express();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
+
+//sert pour la gestion des cookies dans les sessions
+/*app.use(session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: true
+}));*/
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -58,11 +64,8 @@ app.use(function(err, req, res, next) {
   });
 });
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-io.socket.on()
-
-
+mongoose.connect('mongodb://localhost/bdd', function(err) {
+  if (err) { throw err; }
+});
 
 module.exports = app;
