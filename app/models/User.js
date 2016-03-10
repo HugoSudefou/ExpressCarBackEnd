@@ -4,19 +4,21 @@ var SALT = 42;
 
 var schema = new mongoose.Schema({
   username : { type : String, match: /^[a-zA-Z0-9-_]+$/ },
-  name : String,
+  name : {type: String, required: true},
   firstname : String,
   email: { type: String, required: true },  
   password: { type: String, required: true },
   passwordV: { type: String, required: true },  
   phonenumber : String,
-  address : String,
-  postalcode : Number,
-  city : String,
+  address : { type: String, required: true },
+  postalcode : { type: String, required: true },
+  city : { type: String, required: true},
+  country: {type: String, required: true},
   longitude : Number,
   latitude : Number,
-  car : Boolean,
+  car : { type: Boolean, required: true }
 });
+
 
 //Appelé avant d'effectuer la sauvegarde d'un utilisateur
 schema.pre('save', function (next) {
