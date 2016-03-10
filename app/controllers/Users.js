@@ -12,7 +12,7 @@ function isEmptyChamp(req) {
     var regexEmail = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.([a-z]+)|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
 
     return isEmpty(req.body.username) || isEmpty(req.body.name) || isEmpty(req.body.firstname) || !regexEmail.test(req.body.email) || isEmpty(req.body.password) ||
-        isEmpty(req.body.passwordV) || isEmpty(req.body.phonenumber) || isEmpty(req.body.address) // || isEmpty(req.body.postalcode) || isEmpty(req.body.city)
+        isEmpty(req.body.passwordV) || isEmpty(req.body.phonenumber) || isEmpty(req.body.address)  || isEmpty(req.body.postalcode) || isEmpty(req.body.city)
 }
 
 function verifyIfPhoneAndFirstNameAreNotUndefined(req){
@@ -47,8 +47,8 @@ var Users = {
             }
 
             var datasMaps = "";
-            //var addressInLine = req.body.address + ", "+ req.body.postalcode + ", " + req.body.city + ", " + req.body.country;
-            var addressInLine = req.body.address;
+            var addressInLine = req.body.address + ", "+ req.body.postalcode + ", " + req.body.city + ", " + req.body.country;
+            //var addressInLine = req.body.address;
             var options = {
                 host: "maps.googleapis.com",
                 path: '/maps/api/geocode/json?address=' + addressInLine.replace(/\s/g, "+") + '&key=AIzaSyBh-ZMhtx_g97Xs2ZLBryqd8ldApqo_veI'
