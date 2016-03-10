@@ -19,6 +19,7 @@ var schema = new mongoose.Schema({
   car : { type: Boolean, required: true }
 });
 
+
 //Appelé avant d'effectuer la sauvegarde d'un utilisateur
 schema.pre('save', function (next) {
     var user = this;
