@@ -11,7 +11,16 @@ function isEmptyChamp(req) {
     var regexEmail = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.([a-z]+)|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
 
     return isEmpty(req.body.username) || isEmpty(req.body.name) || isEmpty(req.body.firstname) || !regexEmail.test(req.body.email) || isEmpty(req.body.password) ||
-        isEmpty(req.body.passwordV) || isEmpty(req.body.phonenumber) || isEmpty(req.body.address)
+        isEmpty(req.body.passwordV) || isEmpty(req.body.phonenumber) || isEmpty(req.body.address) || isEmpty(req.body.postalcode) || isEmpty(req.body.city)
+}
+
+function veriFyIFPhoneAndFirstNameAreNotUndefined(req){
+    if(req.body.phonenumber == undefined){
+        req.body.phonenumber = "";
+    }
+    if(req.body.firstname == undefined){
+        req.body.firstname = "";
+    }
 }
 
 //Creer un utilisateur
@@ -31,7 +40,12 @@ var Users = {
                 error.push("les mots de passe ne corresepondent pas");
             }
 
-            if (error == "") {
+            if(veriFyIFPhoneAndFirstNameAreNotUndefined(req)){
+                error.push("Certaines valeurs sont incorrect");
+            }
+
+            if (error == []) {
+                //apeller la fonction qui va trouver la latitude et longitude en fonction de l'adresse
                 var newUser = new User({
                     username: req.body.username,
                     name: req.body.name,
@@ -41,7 +55,11 @@ var Users = {
                     passwordV: req.body.passwordV,
                     phonenumber: req.body.phonenumber,
                     address: req.body.address,
-
+                    postalcode : req.body.postalcode,
+                    city : req.body.city,
+                    longitude : req.body.longitude,
+                    latitude : req.body.latitude,
+                    car : req.body.car
                 });
 
                 newUser.save(function (err) {
@@ -51,7 +69,7 @@ var Users = {
                     console.log("L'Utilisateur a été crée!!!!!!!!");
                     console.log(u);
                 });
-                res.render("index", {title: "Carea"});
+                res.render("index", {title: "Carea"});//a modifier
             }
 
             res.render("signup", {title: "Carea", form: req.body, error: error});
@@ -67,8 +85,6 @@ var Users = {
                         // permet de pouvoir via un findOne de recuperer les données de lutilisateur dans la base
                         req.session.email = user.email;
                         //req.redirect(req.url + ""); ligne a modifier
-
-                        //Mettre la redirection
                     } else {
                         // A modifier
                         error.push("Le mot de passe est incorrect");
