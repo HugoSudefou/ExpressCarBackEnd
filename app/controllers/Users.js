@@ -2,6 +2,7 @@ require('../models/User');
 var https = require('https');
 var mongoose = require('mongoose'),
     User = mongoose.model('User');
+var asWrittenInBase = false;
 
 function isEmpty(value) {
     return value == undefined || value == "";
@@ -11,8 +12,8 @@ function isEmpty(value) {
 function isEmptyChamp(req) {
     var regexEmail = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.([a-z]+)|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
 
-    return isEmpty(req.body.username) || isEmpty(req.body.name) || isEmpty(req.body.firstname) || !regexEmail.test(req.body.email) || isEmpty(req.body.password) ||
-        isEmpty(req.body.passwordV) || isEmpty(req.body.phonenumber) || isEmpty(req.body.address)  || isEmpty(req.body.postalcode) || isEmpty(req.body.city)
+    return isEmpty(req.body.username) || isEmpty(req.body.name) || !regexEmail.test(req.body.email) || isEmpty(req.body.password) ||
+        isEmpty(req.body.passwordV) || isEmpty(req.body.phonenumber) || isEmpty(req.body.address)  || isEmpty(req.body.postalcode) || isEmpty(req.body.city) || isEmpty(req.body.country)
 }
 
 function verifyIfPhoneAndFirstNameAreNotUndefined(req){
@@ -82,7 +83,7 @@ var Users = {
                             passwordV: req.body.passwordV,
                             phonenumber: req.body.phonenumber,
                             address: addressComponents[0].long_name + " " + addressComponents[1].long_name,
-                            postalCode: parseInt(addressComponents[6].long_name, 10),
+                            postalcode: parseInt(addressComponents[6].long_name, 10),
                             city: addressComponents[2].long_name,
                             country: addressComponents[5].long_name,
                             latitude: coordinates.lat,
@@ -96,11 +97,25 @@ var Users = {
                             console.log("L'Utilisateur a été crée!!!!!!!!");
                             console.log(u);
                         });
-                        res.render("index", {title: "Carea"});//a modifier
+                        asWrittenInBase = true;
                     }
                 }
             });
-
+			if(asWrittenInBase){
+			res.render("index", {title: "Carea"});//a modifier
+			}		
+			console.log(error);
+			console.log(req.body.username);
+			console.log(req.body.name);
+			console.log(req.body.firstname);
+			console.log(req.body.email);
+			console.log(req.body.password);
+			console.log(req.body.passwordV);
+			console.log(req.body.address);
+			console.log(req.body.postalcode);
+			console.log(req.body.city);
+			console.log(req.body.country);
+			console.log(req.body.phonenumber);
             res.render("signup", {title: "CaRea", form: req.body, error: error});
         });
 
