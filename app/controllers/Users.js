@@ -109,17 +109,6 @@ var Users = {
             });
 
 			console.log(error);
-			console.log(req.body.username);
-			console.log(req.body.name);
-			console.log(req.body.firstname);
-			console.log(req.body.email);
-			console.log(req.body.password);
-			console.log(req.body.passwordV);
-			console.log(req.body.address);
-			console.log(req.body.postalcode);
-			console.log(req.body.city);
-			console.log(req.body.country);
-			console.log(req.body.phonenumber);
             res.render("signup", {title: "CaRea", form: req.body, error: error});
         });
 
@@ -149,7 +138,9 @@ var Users = {
             }
         });
     }
-};
 
+
+
+};
 
 module.exports = Users;
