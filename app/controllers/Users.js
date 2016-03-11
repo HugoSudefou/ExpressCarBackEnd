@@ -66,8 +66,8 @@ var Users = {
                    if(datasMaps.status != "OK"){
                        error.push("L'adresse est introuvable");
                    }
-                    else if(datasMaps.results[0].address_components[0].types == 'street_number'){
-                       WriteInbase(req, res);
+                    else if(datasMaps.results[0].address_components[0].types[0] == 'street_number'){
+                       WriteInbase(req);
                    }
                     else{
                        error.push("l'addresse n'est pas valide");
@@ -76,7 +76,7 @@ var Users = {
 
                 });
 
-                function WriteInbase(req, res) {
+                function WriteInbase(req) {
                     if (error.length == 0) {
                         var addressComponents = datasMaps.results[0].address_components;
                         var coordinates = datasMaps.results[0].geometry.location;
@@ -130,18 +130,23 @@ var Users = {
                     } else {
                         // A modifier
                         error.push("Le mot de passe est incorrect");
-                        req.render("signIn", {title:"Carea", error: error});
+                        res.render("signIn", {title:"Carea", error: error});
                     }
                 });
             }else{
                 error.push("Le mot de passe est incorrect");
-                req.render("signIn",{title: "Carea", error: error});
+                res.render("signIn",{title: "Carea", error: error});
             }
         });
+    },
+
+    viewProfil: function(req, res) {
+      User.findOne({email: req.body.email}, function(err, user){
+          if(user && req.session.isAuthentificated == true){
+              res.render('profil', {title: "Carea", user: user});
+          }
+      });
     }
-
-
-
 };
 
 module.exports = Users;
