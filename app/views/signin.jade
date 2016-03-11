@@ -18,9 +18,9 @@ html(lang='en')
     // Include all compiled plugins (below), or include individual files as needed
     // Latest compiled and minified JavaScript
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
-    // Custom styles for this template
+    // Custom styles for this template=
     link(rel='stylesheet', type='text/css', href='public/stylesheets/signin.css')
-    link(href='public/stylesheets/carousel.css', rel='stylesheet')
+    link(href='public/stylesheets/carousel.css', rel='stylesheet')=
   //
     NAVBAR
     ==================================================
@@ -56,6 +56,21 @@ html(lang='en')
             .row
               .col-md-offset-2.col-md-7
                 h1 Sign in
+                form.form-horizontal(action='/users/signin', name='login', role='form', method='post', accept-charset='utf-8')
+                  .form-group
+                    .col-md-8
+                      input#UserUsername.form-control(name='username', placeholder='Login', type='text')
+                  |  
+                  .form-group
+                    .col-md-8
+                      input#UserPassword.form-control(name='password', placeholder='Password', type='password')
+                  |  
+                  .form-group
+                    .col-md-offset-0.col-md-8
+                      input.btn.btn-success.btn.btn-success(type='submit', value='Connect')
+                  br
+                  br
+                p.credits(style='text-align:center') Develloped by Ynov students.
                 form.form-horizontal(action='/users/login', name='login', role='form', method='post', accept-charset='utf-8')
                   .form-group
                     .col-md-8

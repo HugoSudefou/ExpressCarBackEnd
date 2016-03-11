@@ -4,11 +4,10 @@ var mongoose = require('mongoose'),
     User = mongoose.model('User');
 var asWrittingInBase = false;
 
-function isEmpty(value) {
-    return value == undefined || value == "";
-
+function isEmpty(value){
+	return value == undefined || value == "";
+	
 }
-
 function isEmptyChamp(req) {
     var regexEmail = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.([a-z]+)|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
 
@@ -20,9 +19,6 @@ function isEmptyChamp(req) {
 function verifyIfPhoneAndFirstNameAreNotUndefined(req){
     if(req.body.phonenumber == undefined){
         req.body.phonenumber = "";
-    }
-    if(req.body.firstname == undefined){
-        req.body.firstname = "";
     }
 }
 
