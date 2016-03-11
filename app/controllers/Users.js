@@ -2,6 +2,7 @@ require('../models/User');
 var https = require('https');
 var mongoose = require('mongoose'),
     User = mongoose.model('User');
+var asWrittingInBase = false;
 
 function isEmpty(value) {
     return value == undefined || value == "";
@@ -103,11 +104,13 @@ var Users = {
                             }
                             console.log("L'Utilisateur a été crée!!!!!!!!");
                         });
-                        res.render("index", {title: "Carea"});//a modifier
+                        asWrittingInBase = true;
                     }
                 }
             });
-
+			if(asWrittingInBase){
+				res.render("index", {title: "Carea"});//a modifier
+			}
 			console.log(error);
 			console.log(req.body.username);
 			console.log(req.body.name);
