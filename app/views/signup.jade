@@ -7,20 +7,20 @@ html(lang='en')
     // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
     meta(name='description', content='')
     meta(name='author', content='')
-    link(rel='icon', href='../../favicon.ico')
     title Carea
-    // Bootstrap core CSS
-    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', rel='stylesheet')
-    link(rel='stylesheet', type='text/css', href='signup.css')
-    script(src='https://code.jquery.com/jquery-1.11.3.min.js')
-    script(src='app.js')
     // jQuery (necessary for Bootstrap's JavaScript plugins)
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script(src='/javascripts/bootstrap.min.js')
+    script(src='/javascripts/angular.min.js')
+    //script(src='/javascripts/app.js')
     // Include all compiled plugins (below), or include individual files as needed
     // Latest compiled and minified JavaScript
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
     // Custom styles for this template
-    link(href='carousel.css', rel='stylesheet')
+    // Bootstrap core CSS
+    link(href='/stylesheets/bootstrap/bootstrap.css', rel='stylesheet', type='text/css')
+    link(href='/stylesheets/carousel.css', rel='stylesheet')
+    link(href='/stylesheets/signup.css', rel='stylesheet')
+    //link(href='/stylesheets/style.css', rel='stylesheet')
   //
     NAVBAR
     ==================================================
@@ -35,79 +35,93 @@ html(lang='en')
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-              a.navbar-brand(href='index.html') Carea
+              a.navbar-brand(href='../index.html') CARea
             #navbar.navbar-collapse.collapse
               ul.nav.navbar-nav
                 li
-                  a(href='index.html') Home
-                li
-                  a(href='#about') About
-                li
-                  a(href='#contact') Contact
+                  a(href='#about') A propos / About
               ul.nav.navbar-nav.navbar-right
                 li.active
                   a(href='index_signup.html')
                     span.glyphicon.glyphicon-user
-                    |  Sign up
+                    |  S'inscrire / Sign up
                 li
                   a(href='index_signin.html')
                     span.glyphicon.glyphicon-log-in
-                    |  Sign in
+                    |  Se connecter / Sign in
     .container.marketing
       .row
         .col-md-offset-2.col-md-8
           .main
-            h1  Sign up
-      form.form-horizontal(action='signup', name='signup', role='form', method='post', accept-charset='utf-8') 
+            h1  Sign up 
         .row
-            .col-md-offset-2.col-md-3
-              .form-group
-                label(for='Nom') Pseudo
-                input#pseudo.form-control(type='text', maxlength='15', name='username', placeholder='Pseudo')
-        .row
-          .col-md-offset-2.col-md-3
-            .form-group
-              label(for='Nom') Name
-              input#nom.form-control(type='text', maxlenght='20', name='name', placeholder='Name')
-          .col-md-offset-1.col-md-3
-            .form-group
-              label(for='Prenom') First Name
-              input#prenom.form-control(type='text', maxlenght='20', name='firstname', placeholder='First Name')
-        .row
-          .col-md-offset-2.col-md-7
-            .form-group
-              label(for='Email') Mail address
-              input#email.form-control(type='text', maxlenght='30', name='email', placeholder='Mail')
-        .row
-          .col-md-offset-2.col-md-3
-            .form-group
-              label(for='Password') Password
-              input#password.form-control(type='password', maxlenght='20', name='password', placeholder='Password')
-          .col-md-of.fset-1.col-md-3
-            .form-group
-              label(for='Vpassword') Password verification
-              input#vpassword.form-control(type='password', maxlength='20', name='passwordV', placeholder='Password verification')
-        .row
-          .col-md-offset-2.col-md-3
-            .input-group
-              span.input-group-addon.glyphicon.glyphicon-earphone
-              input.form-control(type='text', maxlenght='20', placeholder='Phone', name='phonenumber', aria-describedby='basic-addon1')
-            .input-group
-              span.input-group-addon.glyphicon.glyphicon-globe
-              input.form-control(type='text', maxlenght='20', placeholder='Address', name='address', aria-describedby='basic-addon1')
-        br
-        .row
-          .col-md-offset-5.col-md-1
-            input.btn.btn-success.btn.btn-success(type='submit', name='submit', value='Submit')
-      if error
-        - for(message in error)
-          h2= error[message]
-      footer
-        p.pull-right
-          a(href='#') Back to top
-        p
-          | © 2015 Company, Inc. · 
-          a(href='#') Privacy
-          |  · 
-          a(href='#') Terms
-    // /.container
+          form.form-horizontal(action='/users/signup', name='signup', role='form', method='post', accept-charset='utf-8')
+            .row
+              .col-md-offset-2.col-md-3
+                .form-group
+                  label(for='Nom') Pseudo
+                  input#pseudo.form-control(type='text', name='username', maxlength='15', placeholder='Pseudo', ng-model="bite")
+                  label(for='Nom') {{bite}}
+            .row
+              .col-md-offset-2.col-md-3
+                .form-group
+                  label(for='Nom') Name
+                  input#nom.form-control(type='text', name='name', maxlength='20', placeholder='Name')
+              .col-md-offset-1.col-md-3
+                .form-group
+                  label(for='Prenom') First Name
+                  input#prenom.form-control(type='text', name='firstname', maxlength='20', placeholder='First Name')
+            .row
+              .col-md-offset-2.col-md-7
+                .form-group
+                  label(for='Email') Mail address
+                  input#email.form-control(type='text', name='email', maxlength='30', placeholder='Mail')
+            .row
+              .col-md-offset-2.col-md-7
+                .form-group
+                  label(for='postal') Zip code
+                  input#postal.form-control(type='text', name='postalCode', maxlength='30', placeholder='Zip code')
+            .row
+              .col-md-offset-2.col-md-7
+                .form-group
+                  label(for='ville') City
+                  input#ville.form-control(type='text', name='city', maxlength='30', placeholder='City')
+            .row
+              .col-md-offset-2.col-md-7
+                .form-group
+                  label(for='country') Country
+                  input#country.form-control(type='text', name='country', maxlength='30', placeholder='Country')
+            .row
+              .col-md-offset-2.col-md-3
+                .form-group
+                  label(for='Password') Password
+                  input#password.form-control(type='password', name='password', maxlength='20', placeholder='Password')
+              .col-md-of.fset-1.col-md-3
+                .form-group
+                  label(for='Vpassword') Password verification
+                  input#vpassword.form-control(type='password', name='passwordV', maxlength='20', placeholder='Password verification')
+            .row
+              .col-md-offset-2.col-md-3
+                .input-group
+                  span.input-group-addon.glyphicon.glyphicon-earphone
+                  input.form-control(type='text', maxlength='20', placeholder='Phone', aria-describedby='basic-addon1')
+                .input-group
+                  span.input-group-addon.glyphicon.glyphicon-globe
+                  input.form-control(type='text', maxlength='20', placeholder='Address', aria-describedby='basic-addon1')
+            br
+            .row
+              .col-md-offset-5.col-md-1
+                button.btn.btn-success.btn.btn-success(type='button') Submit
+      footer#footer.site-footer
+        section.site-footer-bottom
+          ul.display
+            li.dispi
+              ul.dispi
+                li.dispi
+                  | ©2016 CORP.
+                  a  
+                li.dispi
+                  a(href='#') Legal Notice
+                  a  
+                li.dispi
+                  a(href='#') Terms of use
