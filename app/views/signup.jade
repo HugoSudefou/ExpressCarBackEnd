@@ -4,7 +4,7 @@ html(lang='en')
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    //- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
     meta(name='description', content='')
     meta(name='author', content='')
     title Carea
@@ -55,6 +55,7 @@ html(lang='en')
           .main
             h1  Sign up 
         .row
+<<<<<<< HEAD
           form.form-horizontal(action='/users/signup', name='signup', role='form', method='post', accept-charset='utf-8')
             .row
               .col-md-offset-2.col-md-3
@@ -62,6 +63,13 @@ html(lang='en')
                   label(for='Nom') Pseudo
                   input#pseudo.form-control(type='text', name='username', maxlength='15', placeholder='Pseudo', ng-model="bite")
                   label(for='Nom') {{bite}}
+=======
+          form.form-horizontal(name='signup', role='form', method='post', accept-charset='utf-8')
+            .col-md-offset-2.col-md-3
+              .form-group
+                label(for='Nom') Pseudo
+                input#pseudo.form-control(type='text', name='username', maxlength='15', placeholder='Pseudo')
+>>>>>>> master
             .row
               .col-md-offset-2.col-md-3
                 .form-group
@@ -80,7 +88,11 @@ html(lang='en')
               .col-md-offset-2.col-md-7
                 .form-group
                   label(for='postal') Zip code
+<<<<<<< HEAD
                   input#postal.form-control(type='text', name='postalCode', maxlength='30', placeholder='Zip code')
+=======
+                  input#postal.form-control(type='text', name='postalcode', maxlength='30', placeholder='Zip code')
+>>>>>>> master
             .row
               .col-md-offset-2.col-md-7
                 .form-group
@@ -104,6 +116,7 @@ html(lang='en')
               .col-md-offset-2.col-md-3
                 .input-group
                   span.input-group-addon.glyphicon.glyphicon-earphone
+<<<<<<< HEAD
                   input.form-control(type='text', maxlength='20', placeholder='Phone', aria-describedby='basic-addon1')
                 .input-group
                   span.input-group-addon.glyphicon.glyphicon-globe
@@ -125,3 +138,26 @@ html(lang='en')
                   a  
                 li.dispi
                   a(href='#') Terms of use
+=======
+                  input.form-control(type='text', maxlength='20', placeholder='Phone',name='phonenumber' aria-describedby='basic-addon1')
+                .input-group
+                  span.input-group-addon.glyphicon.glyphicon-globe
+                  input.form-control(type='text', maxlength='20', placeholder='Address', name='address', aria-describedby='basic-addon1')
+            br
+            .row
+              .col-md-offset-5.col-md-1
+                input(type='submit', value='Submit')
+    footer#footer.site-footer
+      section.site-footer-bottom
+        ul.display
+          li.dispi
+            ul.dispi
+              li.dispi
+                | ©2016 CORP.
+                a  
+              li.dispi
+                a(href='#') Legal Notice
+                a  
+              li.dispi
+                a(href='#') Terms of use
+>>>>>>> master
