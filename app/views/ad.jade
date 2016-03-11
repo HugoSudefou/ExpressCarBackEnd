@@ -1,0 +1,106 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='../../favicon.ico')
+    title Carea
+    // Bootstrap core CSS
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', rel='stylesheet')
+    script(src='https://code.jquery.com/jquery-1.11.3.min.js')
+    script(src='Js/bootstrap.js')
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    // Include all compiled plugins (below), or include individual files as needed
+    // Latest compiled and minified JavaScript
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+    // Custom styles for this template
+    link(href='Css/carousel.css', rel='stylesheet')
+  //
+    NAVBAR
+    ==================================================
+  body
+    .navbar-wrapper
+      .container
+        nav.navbar.navbar-inverse.navbar-static-top
+          .container
+            .navbar-header
+              button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.navbar-brand(href='index.html') Carea
+            #navbar.navbar-collapse.collapse
+              ul.nav.navbar-nav
+                li.active
+                  a(href='#') Acceuil / Home
+                li
+                  a(href='#about') A propos / About
+              ul.nav.navbar-nav.navbar-right
+                li
+                  a(href='Pages/index_signup.html')
+                    span.glyphicon.glyphicon-user
+                    |  S'inscrire / Sign up
+                li
+                  a(href='Pages/index_signin.html')
+                    span.glyphicon.glyphicon-log-in
+                    |  Se connecter / Sign in
+    br
+    br
+    .container-fluid
+      .row
+        .col-sm-12
+          h1(style='text-align:center') CARea
+    .container-fluid
+      .row
+        .col-sm-12
+          h3(style='text-align:center') Annonces proche de vous
+    // Corps de présentation
+    br
+    br
+    .container-fluid
+      .row
+        .col-sm-12
+          .list-group(style='text-align:center')
+            a.list-group-item(href='#')
+              tr
+                td 03/05/16 21:45:34
+                br
+                td SuperVoisin
+                br
+                td Aller retour fnac Bercy
+                br
+                td 5 rue de la grande armé
+                br
+                td Supervoisin@carea.com
+                br
+                td 0600000000
+            a.list-group-item(href='#') item 2
+            a.list-group-item(href='#') item 3
+            a.list-group-item(href='#') item 4
+            a.list-group-item(href='#') item 5
+            a.list-group-item(href='#') item 6
+            a.list-group-item(href='#') item 7
+            a.list-group-item(href='#') item 8
+            a.list-group-item(href='#') item 9
+            a.list-group-item(href='#') item 10
+    footer
+      p.pull-right
+        a(href='#') Back to top
+      p(style='text-align:center')
+        | © 2016 CARea · 
+        a(href='#') Privacy
+        |  · 
+        a(href='index_faq.html') FAQ
+    script(src='https://code.jquery.com/jquery-1.11.3.min.js')
+    script(src='Js/boostrap.js')
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    // Include all compiled plugins (below), or include individual files as needed
+    // Latest compiled and minified JavaScript
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
