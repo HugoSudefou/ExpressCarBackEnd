@@ -11,5 +11,11 @@ router.get('/about', function(req,res){
 router.get('/index', function(req,res){
   res.render('index');
 });
+router.get('/signup', function(req,res){
+  res.render('signup');
+});
+router.get('/signin', function(req,res){
+  res.render('signin');
+});
 
 module.exports = router;

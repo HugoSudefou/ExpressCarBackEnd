@@ -6,8 +6,8 @@ var Users = require('./app/controllers/Users');
 router.get('/', function(req, res) {
   res.render('signup');
 });
-app.get('/', function(req, res) {
-  res.send('about');
+router.get('/signin', function(req, res){
+	res.render('signin');
 });
 router.post('/signup', Users.create);
 

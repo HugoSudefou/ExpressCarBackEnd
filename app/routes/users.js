@@ -6,5 +6,5 @@ var Users = require('../controllers/Users')
 router.post('/signup', Users.create);
 router.get('/signup', function(req,res){
 	res.render('signup');
-});
+});    
 module.exports = router;
