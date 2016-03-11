@@ -1,4 +1,5 @@
 require('../models/User');
+var https = require('https');
 var mongoose = require('mongoose'),
     User = mongoose.model('User');
 var asWrittingInBase = false;
@@ -22,6 +23,7 @@ function verifyIfPhoneAndFirstNameAreNotUndefined(req){
 }
 
 //Creer un utilisateur
+var error = [];
 var Users = {
     create: function (req, res) {
 
