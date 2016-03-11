@@ -73,6 +73,7 @@ var Users = {
                         var addressComponents = datasMaps.results[0].address_components;
                         var coordinates = datasMaps.results[0].geometry.location;
                         //apeller la fonction qui va trouver la latitude et longitude en fonction de l'adresse
+
                         var newUser = new User({
                             username: req.body.username,
                             name: req.body.name,
@@ -103,9 +104,6 @@ var Users = {
 
             res.render("signup", {title: "CaRea", form: req.body, error: error});
         });
-
-
-
 
     },
 
