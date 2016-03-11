@@ -48,7 +48,7 @@ var Users = {
             var addressInLine = req.body.address + ", "+ req.body.postalcode + ", " + req.body.city + ", " + req.body.country;
             var options = {
                 host: "maps.googleapis.com",
-                path: '/maps/api/geocode/json?address=' + addressInLine.replace(/\s/g, "+") + '&key=AIzaSyBh-ZMhtx_g97Xs2ZLBryqd8ldApqo_veI'
+                path: '/maps/api/geocode/json?address=' + addressInLine.replace(/\s/g, "+") + 'AIzaSyCymIjiCajICUYimKe7FYHQ1aR-XoNnvGY'
             };
 
             https.get(options, function(res){
@@ -142,7 +142,14 @@ var Users = {
               res.render('profil', {title: "Carea", user: user});
           }
       });
+    },
+
+    update: function(req, res){
+        User.findOne({email: email.req.body.email}, function(err, user){
+
+        });
     }
+
 };
 
 module.exports = Users;
