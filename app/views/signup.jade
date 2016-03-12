@@ -56,10 +56,11 @@ html(lang='en')
             h1  Sign up 
         .row
           form.form-horizontal(name='signup', role='form', method='post', accept-charset='utf-8')
-            .col-md-offset-2.col-md-3
-              .form-group
-                label(for='Nom') Pseudo
-                input#pseudo.form-control(type='text', name='username', maxlength='15', placeholder='Pseudo')
+            .row
+              .col-md-offset-2.col-md-3
+                .form-group
+                  label(for='Nom') Pseudo
+                  input#pseudo.form-control(type='text', name='username', maxlength='15', placeholder='Pseudo')
             .row
               .col-md-offset-2.col-md-3
                 .form-group
