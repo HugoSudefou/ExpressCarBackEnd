@@ -36,7 +36,7 @@ function completeAddress(req) {
 function optionForCheckAddressOnGoogleAPI(req) {
     return {
         host: "maps.googleapis.com",
-        path: '/maps/api/geocode/json?address=' + completeAddress(req).replace(/\s/g, "+") + 'AIzaSyCymIjiCajICUYimKe7FYHQ1aR-XoNnvGY'
+        path: '/maps/api/geocode/json?address=' + completeAddress(req).replace(/\s/g, "+") + '&key=AIzaSyBh-ZMhtx_g97Xs2ZLBryqd8ldApqo_veI'
     };
 }
 function datasUserToActionInDataBase(req, addressComponents, coordinates) {
