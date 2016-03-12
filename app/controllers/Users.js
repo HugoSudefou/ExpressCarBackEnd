@@ -7,7 +7,6 @@ var validator = require('validator');
 
 function isEmpty(value){
 	return value == undefined || value == "";
-	
 }
 function isEmptyChamp(req) {
     // var regexEmail = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.([a-z]+)|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
