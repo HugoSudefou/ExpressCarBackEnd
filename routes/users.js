@@ -10,5 +10,6 @@ router.get('/signin', function(req, res){
 	res.render('signin');
 });
 router.post('/signup', Users.create);
+router.post('/signin', Users.signIn);
 
 module.exports = router;
