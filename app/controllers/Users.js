@@ -10,7 +10,7 @@ function isEmpty(value){
 }
 function isEmptyChamp(user) {
     return isEmpty(user.username) || isEmpty(user.name) || !validator.isEmail(user.email) || isEmpty(user.password) ||
-        isEmpty(user.passwordV) || isEmpty(user.phonenumber) || isEmpty(user.address)  || isEmpty(user.postalcode)
+        isEmpty(user.passwordV) || isEmpty(user.phoneNumber) || isEmpty(user.address)  || isEmpty(user.postalCode)
         || isEmpty(user.city) || isEmpty(user.country)
 }
 
@@ -27,14 +27,12 @@ function passwordComparaison(user) {
 }
 
 function completeAddress(user) {
-    return user.address + ", " + user.postalcode + ", " + user.city + ", " + user.country;
+    return user.address + ", " + user.postalCode + ", " + user.city + ", " + user.country;
 }
 
 
 var Users = {
     create: function (req, res) {
-        console.log('sdoifjqosijdf');
-
         const user = req.body;
 
         User.findOne({'email': user.email}, function (err, userInBase) {
@@ -59,7 +57,7 @@ var Users = {
             Geoloc.getLocalisationData(address)
                 .then(locData => {
                     Object.assign(user, locData);
-                    console.log('Ok');
+                    console.log(user);
                     return User(user).save();
                 })
                 .then(savedUser => res.render("index", {title: savedUser._id}))
@@ -87,7 +85,7 @@ var Users = {
                     }
                 });
             }else{
-                error.push("Le mot de passe est incorrect");
+                error.push("L'email  est incorrect");
                 res.render("signin",{title: "Carea", error: error});
             }
         });
