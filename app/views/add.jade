@@ -1,0 +1,104 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='../../favicon.ico')
+    title Carea
+    // Bootstrap core CSS
+    link(href='../Stylesheets/bootstrap/bootstrap.min.css', rel='stylesheet')
+    script(src='https://code.jquery.com/jquery-1.11.3.min.js')
+    script(src='app.js')
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    // Include all compiled plugins (below), or include individual files as needed
+    // Latest compiled and minified JavaScript
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+    // Custom styles for this template
+    link(href='../Stylesheets/signup.css', rel='stylesheet')
+  //
+    NAVBAR
+    ==================================================
+  body
+    .navbar-wrapper
+      .container
+        nav.navbar.navbar-inverse.navbar-static-top
+          .container
+            .navbar-header
+              button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.navbar-brand(href='../index.html') Carea
+            #navbar.navbar-collapse.collapse
+              ul.nav.navbar-nav
+                li
+                  a(href='index_about.html') A propos / About
+              ul.nav.navbar-nav.navbar-right
+                li
+                  a(href='index_signup.html')
+                    span.glyphicon.glyphicon-user
+                    |  S'inscrire / Sign up
+                li.active
+                  a(href='index_signin.html')
+                    span.glyphicon.glyphicon-log-in
+                    |  Se connecter / Sign in
+    br
+    br
+    br
+    br
+    .container.marketing
+      .row
+        form.form-horizontal(action='user/creaA', name='creaA', role='form', method='post', accept-charset='utf-8')
+      .row
+        .col-md-offset-2.col-md-3
+          .form-group
+            label(for='Nom') Objet
+            input#nom.form-control(type='text', name='object', maxlenght='20', placeholder='Objet')
+        .col-md-offset-2.col-md-7
+          .form-group
+            label(for='start') Départ
+            input#start.form-control(type='text', name='start', maxlenght='50', placeholder='Adresse de départ')
+      .row
+        .col-md-offset-2.col-md-7
+          .form-group
+            label(for='end') Arrivé
+            input#end.form-control(type='text', name='end', maxlenght='50', placeholder="Adresse d'arrivé")
+      .row
+        .col-md-offset-2.col-md-7
+          .form-group
+            label(for='date') Date et heure
+            input#date-heure.form-control(type='datetime-local', name='date-heure', maxlenght='8', placeholder='Date et heure')
+      .row
+        .col-md-offset-2.col-md-7
+          .form-group
+            label(for='car') Voiture
+            input#car.form-control(type='text', name='brandCar', maxlenght='30', placeholder='Marque, modèle et couleur')
+      br
+      .row
+        .col-md-offset-2.col-md-3
+          .input-group
+            span.input-group-addon.glyphicon.glyphicon-earphone
+            input.form-control(type='tel', name='phoneNumber', maxlenght='10', placeholder='Phone', aria-describedby='basic-addon1')
+      br
+      .row
+        .col-md-offset-5.col-md-4
+          button.btn.btn-success.btn.btn-success(type='button') Submit
+    footer#footer.site-footer
+      section.site-footer-bottom
+        ul.display
+          li.dispi
+            ul.dispi
+              li.dispi
+                | ©2016 CARea
+                a  
+              li.dispi
+                a(href='#') Legal Notice
+                a  
+              li.dispi
+                a(href='index_faq.html') FAQ
