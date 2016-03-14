@@ -23,8 +23,8 @@ router.get('/ad', function(req,res){
 router.get('/annonces', function(req,res){
   res.render('annonces');
 });
-router.get('/ad', function(req,res){
-  res.render('ad');
+router.get('/add', function(req,res){
+  res.render('add');
 });
 
 module.exports = router;
