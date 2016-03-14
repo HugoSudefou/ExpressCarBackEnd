@@ -131,6 +131,7 @@ var Users = {
                         req.session.isAuthentificated = true;
                         // permet de pouvoir via un findOne de recuperer les données de lutilisateur dans la base
                         req.session.email = user.email;
+                        console.log("zdazdishaish");
                         //req.redirect(req.url + ""); ligne a modifier
                     } else {
                         // A modifier
