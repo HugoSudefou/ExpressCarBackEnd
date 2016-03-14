@@ -12,13 +12,13 @@ function isEmptyChamp(req) {
     var regexEmail = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.([a-z]+)|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
 
     return isEmpty(req.body.username) || isEmpty(req.body.name) || !regexEmail.test(req.body.email) || isEmpty(req.body.password) ||
-        isEmpty(req.body.passwordV) || isEmpty(req.body.phonenumber) || isEmpty(req.body.address)  || isEmpty(req.body.postalcode)
+        isEmpty(req.body.passwordV) || isEmpty(req.body.phoneNumber) || isEmpty(req.body.address)  || isEmpty(req.body.postalCode)
         || isEmpty(req.body.city) || isEmpty(req.body.country)
 }
 
 function verifyIfPhoneAndFirstNameAreNotUndefined(req){
-    if(req.body.phonenumber == undefined){
-        req.body.phonenumber = "";
+    if(req.body.phoneNumber == undefined){
+        req.body.phoneNumber = "";
     }
 }
 
@@ -29,15 +29,15 @@ var Users = {
 
         User.findOne({'email': req.body.email}, function (err, userInBase) {
             if (userInBase) {
-                error.push("l'adresse email est déja utilisé");
+                error.push("L'adresse email est déja utilisé");
             }
 
             if (isEmptyChamp(req)) {
-                error.push("un champ est incorrect ou manquant");
+                error.push("Un champ est incorrect ou manquant");
             }
 
             if (req.body.password != req.body.passwordV) {
-                error.push("les mots de passe ne corresepondent pas");
+                error.push("Les mots de passe ne corresepondent pas");
             }
 
             if(verifyIfPhoneAndFirstNameAreNotUndefined(req)){
@@ -45,7 +45,7 @@ var Users = {
             }
 
             var datasMaps = "";
-            var addressInLine = req.body.address + ", "+ req.body.postalcode + ", " + req.body.city + ", " + req.body.country;
+            var addressInLine = req.body.address + ", "+ req.body.postalCode + ", " + req.body.city + ", " + req.body.country;
             var options = {
                 host: "maps.googleapis.com",
                 path: '/maps/api/geocode/json?address=' + addressInLine.replace(/\s/g, "+") + 'AIzaSyCymIjiCajICUYimKe7FYHQ1aR-XoNnvGY'
@@ -66,7 +66,7 @@ var Users = {
                        WriteInbase(req);
                    }
                     else{
-                       error.push("l'addresse n'est pas valide");
+                       error.push("L'addresse n'est pas valide");
                    }
 
 
@@ -82,13 +82,13 @@ var Users = {
                         var newUser = new User({
                             username: req.body.username,
                             name: req.body.name,
-                            firstname: req.body.firstname,
+                            firstName: req.body.firstName,
                             email: req.body.email,
                             password: req.body.password,
                             passwordV: req.body.passwordV,
-                            phonenumber: req.body.phonenumber,
+                            phoneNumber: req.body.phoneNumber,
                             address: addressComponents[0].long_name + " " + addressComponents[1].long_name,
-                            postalcode: addressComponents[6].long_name,
+                            postalCode: addressComponents[6].long_name,
                             city: addressComponents[2].long_name,
                             country: addressComponents[5].long_name,
                             latitude: coordinates.lat,
