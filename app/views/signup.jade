@@ -35,18 +35,18 @@ html(lang='en')
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-              a.navbar-brand(href='http://127.0.0.1:8000/index') CARea
+              a.navbar-brand(href='/index') CARea
             #navbar.navbar-collapse.collapse
               ul.nav.navbar-nav
                 li
-                  a(href='http://127.0.0.1:8000/about') A propos / About
+                  a(href='/about') A propos / About
               ul.nav.navbar-nav.navbar-right
                 li.active
-                  a(href='http://127.0.0.1:8000/signup')
+                  a(href='/signup')
                     span.glyphicon.glyphicon-user
                     |  S'inscrire / Sign up
                 li
-                  a(href='http://127.0.0.1:8000/signin')
+                  a(href='/signin')
                     span.glyphicon.glyphicon-log-in
                     |  Se connecter / Sign in
     .container.marketing
@@ -55,7 +55,7 @@ html(lang='en')
           .main
             h1  Sign up 
         .row
-          form.form-horizontal(name='signup', role='form', method='post', accept-charset='utf-8')
+          form.form-horizontal(action="users/signup" name='signup', role='form', method='post', accept-charset='utf-8')
             .row
               .col-md-offset-2.col-md-3
                 .form-group
@@ -69,7 +69,7 @@ html(lang='en')
               .col-md-offset-1.col-md-3
                 .form-group
                   label(for='Prenom') First Name
-                  input#prenom.form-control(type='text', name='firstname', maxlength='20', placeholder='First Name')
+                  input#prenom.form-control(type='text', name='firstName', maxlength='20', placeholder='First Name')
             .row
               .col-md-offset-2.col-md-7
                 .form-group
@@ -79,7 +79,7 @@ html(lang='en')
               .col-md-offset-2.col-md-7
                 .form-group
                   label(for='postal') Zip code
-                  input#postal.form-control(type='text', name='postalcode', maxlength='30', placeholder='Zip code')
+                  input#postal.form-control(type='text', name='postalCode', maxlength='30', placeholder='Zip code')
             .row
               .col-md-offset-2.col-md-7
                 .form-group
@@ -103,7 +103,7 @@ html(lang='en')
               .col-md-offset-2.col-md-3
                 .input-group
                   span.input-group-addon.glyphicon.glyphicon-earphone
-                  input.form-control(type='text', maxlength='20', placeholder='Phone',name='phonenumber' aria-describedby='basic-addon1')
+                  input.form-control(type='text', maxlength='20', placeholder='Phone',name='phoneNumber' aria-describedby='basic-addon1')
                 .input-group
                   span.input-group-addon.glyphicon.glyphicon-globe
                   input.form-control(type='text', maxlength='20', placeholder='Address', name='address', aria-describedby='basic-addon1')

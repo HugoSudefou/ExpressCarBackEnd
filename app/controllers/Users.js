@@ -6,7 +6,7 @@ var validator = require('validator');
 const Geoloc = require('../util/Geoloc');
 
 function isEmpty(value){
-	return value == undefined || value == "";
+    return value == undefined || value == "";
 }
 function isEmptyChamp(user) {
     return isEmpty(user.username) || isEmpty(user.name) || !validator.isEmail(user.email) || isEmpty(user.password) ||
