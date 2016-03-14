@@ -17,5 +17,11 @@ router.get('/signup', function(req,res){
 router.get('/signin', function(req,res){
   res.render('signin');
 });
+router.get('/ad', function(req,res){
+  res.render('ad');
+});
+router.get('/annonces', function(req,res){
+  res.render('annonces');
+});
 
 module.exports = router;
