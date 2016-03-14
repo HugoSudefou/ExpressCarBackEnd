@@ -59,9 +59,9 @@ app.use(function(err, req, res, next) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.use(session({
-    secret: 'secret',
-    resave: false,
-    saveUninitialized: true
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: true
 }));
 
 mongoose.connect('mongodb://localhost/bdd', function(err) {
