@@ -63,6 +63,7 @@ function getCoordinates(datasMaps) {
 }
 var Users = {
     create: function (req, res) {
+        console.log('sdoifjqosijdf');
 
         User.findOne({'email': req.body.email}, function (err, userInBase) {
             if (userInBase) {
