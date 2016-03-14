@@ -33,8 +33,6 @@ function completeAddress(user) {
 
 var Users = {
     create: function (req, res) {
-        console.log('sdoifjqosijdf');
-
         const user = req.body;
 
         User.findOne({'email': user.email}, function (err, userInBase) {
