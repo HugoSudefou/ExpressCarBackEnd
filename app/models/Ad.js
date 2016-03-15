@@ -1,7 +1,4 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt-nodejs');
-var SALT = 42; 
-
 var ad = new mongoose.Schema({
 	object : String,
 	start : String,

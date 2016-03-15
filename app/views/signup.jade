@@ -55,7 +55,7 @@ html(lang='en')
           .main
             h1  Sign up 
         .row
-          form.form-horizontal(action='users/signup' name='signup', role='form', method='post', accept-charset='utf-8')
+          form.form-horizontal(action='/signup' name='signup', role='form', method='post', accept-charset='utf-8')
             .row
               .col-md-offset-2.col-md-3
                 .form-group
@@ -65,31 +65,31 @@ html(lang='en')
               .col-md-offset-2.col-md-3
                 .form-group
                   label(for='Nom') Name
-                  input#nom.form-control(type='text', name='name', maxlength='20', placeholder='Name')
+                  input#nom.form-control(type='text', name='name', maxlength='20', placeholder='Name', value = form.name)
               .col-md-offset-1.col-md-3
                 .form-group
                   label(for='Prenom') First Name
-                  input#prenom.form-control(type='text', name='firstName', maxlength='20', placeholder='First Name')
+                  input#prenom.form-control(type='text', name='firstName', maxlength='20', placeholder='First Name', value = form.firstName)
             .row
               .col-md-offset-2.col-md-7
                 .form-group
                   label(for='Email') Mail address
-                  input#email.form-control(type='text', name='email', maxlength='30', placeholder='Mail')
+                  input#email.form-control(type='text', name='email', maxlength='30', placeholder='Mail', value = form.email)
             .row
               .col-md-offset-2.col-md-7
                 .form-group
                   label(for='postal') Zip code
-                  input#postal.form-control(type='text', name='postalCode', maxlength='30', placeholder='Zip code')
+                  input#postal.form-control(type='text', name='postalCode', maxlength='30', placeholder='Zip code', value = form.postalCode)
             .row
               .col-md-offset-2.col-md-7
                 .form-group
                   label(for='ville') City
-                  input#ville.form-control(type='text', name='city', maxlength='30', placeholder='City')
+                  input#ville.form-control(type='text', name='city', maxlength='30', placeholder='City', value = form.city)
             .row
               .col-md-offset-2.col-md-7
                 .form-group
                   label(for='country') Country
-                  input#country.form-control(type='text', name='country', maxlength='30', placeholder='Country')
+                  input#country.form-control(type='text', name='country', maxlength='30', placeholder='Country', value = form.country)
             .row
               .col-md-offset-2.col-md-3
                 .form-group
@@ -103,10 +103,10 @@ html(lang='en')
               .col-md-offset-2.col-md-3
                 .input-group
                   span.input-group-addon.glyphicon.glyphicon-earphone
-                  input.form-control(type='text', maxlength='20', placeholder='Phone',name='phoneNumber' aria-describedby='basic-addon1')
+                  input.form-control(type='text', maxlength='20', placeholder='Phone',name='phoneNumber' aria-describedby='basic-addon1', value = form.phoneNumber)
                 .input-group
                   span.input-group-addon.glyphicon.glyphicon-globe
-                  input.form-control(type='text', maxlength='20', placeholder='Address', name='address', aria-describedby='basic-addon1')
+                  input.form-control(type='text', maxlength='20', placeholder='Address', name='address', aria-describedby='basic-addon1', value = form.address)
             br
             .row
               .col-md-offset-5.col-md-1
