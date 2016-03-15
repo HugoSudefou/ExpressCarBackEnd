@@ -15,8 +15,8 @@ function isEmptyChamp(user) {
 }
 
 function verifyIfPhoneAndFirstNameAreNotUndefined(user){
-    if(user.phonenumber == undefined){
-        user.phonenumber = "";
+    if(user.phoneNumber == undefined){
+        user.phoneNumber = "";
     }
 }
 
@@ -52,19 +52,23 @@ var Users = {
                 error.push("Certaines valeurs sont incorrect");
             }
 
-            var address = completeAddress(user);
+            if (error.lenght == 0) {
+                
+                var address = completeAddress(user);
 
-            Geoloc.getLocalisationData(address)
-                .then(locData => {
-                    Object.assign(user, locData);
-                    console.log(user);
-                    return User(user).save();
-                })
-                .then(savedUser => res.render("index", {title: savedUser._id}))
-                .catch(error => {
-                    console.error(error);
-                    res.render("signup", {title: "CaRea", form: req.body, error: error})
-                });
+                Geoloc.getLocalisationData(address)
+                    .then(locData => {
+                        Object.assign(user, locData);
+                        console.log(user);
+                        return User(user).save();
+                    })
+                    .then(savedUser => res.render("index", {title: savedUser._id}))
+                    .catch(error => {
+                        console.error(error);
+                        res.render("signup", {title: "CaRea", form: req.body, error: error})
+                    });
+            }
+
         });
 
     },
