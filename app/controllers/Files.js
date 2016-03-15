@@ -3,21 +3,22 @@
  */
 
 var Files = {
-    index: function(res){
+    index: function(req, res){
         res.render('index', { title: 'Express' });
     },
 
-    about: function(res){
+    about: function(req,res){
         res.render('about');
     },
 
-    signIn: function(res){
+    signIn: function(req,res){
         res.render('signin');
     },
 
-    signUp: function(res){
+    signUp: function(req,res){
         res.render('signup', {form:{}});
     }
 
 };
 
+module.exports = Files;
