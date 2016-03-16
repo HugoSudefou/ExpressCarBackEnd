@@ -14,8 +14,7 @@ var schema = new mongoose.Schema({
   city : { type: String, required: true},
   country: {type: String, required: true},
   longitude : Number,
-  latitude : Number,
-  car : { type: Boolean, required: false }
+  latitude : Number
 });
 
 

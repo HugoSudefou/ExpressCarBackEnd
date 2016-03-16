@@ -6,11 +6,19 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
-
+var csrf = require('csurf');
 var routes = require('./app/routes/index');
 var users = require('./app/routes/users');
 
 var app = express();
+app.use(csrf());
+app.use(function(req,res, next){
+   res.locals.csrf = req.csrfToken();
+    res.locals.session = req.session;
+    next();
+});
+
+
 
 app.use(session({
     secret: 'secret',

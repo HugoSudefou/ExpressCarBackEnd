@@ -118,48 +118,6 @@ var Users = {
         });
     },
 
-    /*update: function (req, res) {
-        var user = req.body;
-        User.findOne({email: user.email}, function (err, userInBase) {
-            if (userInBase) {
-                error.push("l'adresse email est déja utilisé");
-            }
-
-            if (isEmptyChamp(user)) {
-                error.push("un champ est incorrect ou manquant");
-            }
-
-
-            if (verifyIfPhoneAndFirstNameAreNotUndefined(user)) {
-                error.push("Certaines valeurs sont incorrect");
-            }
-            User.findOne({username: user.username}, function (err, userInBase) {
-                if (userInBase) {
-                    error.push("this username already exist");
-                }
-            });
-
-            if (error.length == 0) {
-                var address = completeAddress(user);
-
-                Geoloc.getLocalisationData(address)
-                    .then(locData => {
-                        Object.assign(user, locData);
-                        console.log('Ok');
-                        Object.assign(userInBase, user);
-                        return userInBase.save();
-                    })
-                    .then(updateUser => res.redirect("/profil"))
-                    .catch(error => {
-                        console.error(error);
-                        res.render("profil", {title: "CaRea", form: user, error: error})
-                    });
-            }else{
-                res.render("profil", {title: "CaRea", form: user, error: error})
-            }
-        });
-    }*/
-
     update: function(req, res) {
         var user = req.body;
         var userToUpdate;
@@ -207,7 +165,6 @@ var Users = {
             res.render("profil", {title: "CaRea", form: user, error: error})
         }
     }
-
 
 };
 
