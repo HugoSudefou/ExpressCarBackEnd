@@ -63,7 +63,6 @@ var Users = {
                 Geoloc.getLocalisationData(address)
                     .then(locData => {
                         Object.assign(user, locData);
-                        console.log(user);
                         return User(user).save();
                     })
                     .then(savedUser => {
@@ -119,7 +118,7 @@ var Users = {
         });
     },
 
-    update: function (req, res) {
+    /*update: function (req, res) {
         var user = req.body;
         User.findOne({email: user.email}, function (err, userInBase) {
             if (userInBase) {
@@ -159,7 +158,56 @@ var Users = {
                 res.render("profil", {title: "CaRea", form: user, error: error})
             }
         });
+    }*/
+
+    update: function(req, res) {
+        var user = req.body;
+        var userToUpdate;
+        User.findOne({email: req.session.email}, function (err, userRequest) {
+            userToUpdate = userRequest;
+        });
+
+        User.findOne({email: user.email}, function (err, userInBase) {
+            if (userInBase && user.email != userToUpdate.email) {
+                error.push("l'adresse email est déja utilisé");
+            }
+
+            if (isEmptyChamp(user)) {
+                error.push("un champ est incorrect ou manquant");
+            }
+
+
+            if (verifyIfPhoneAndFirstNameAreNotUndefined(user)) {
+                error.push("Certaines valeurs sont incorrect");
+            }
+        });
+
+        User.findOne({username: user.username}, function (err, userInBase) {
+            if (userInBase && user.username != userToUpdate) {
+                error.push("UserName is already used")
+            }
+        });
+
+        if (error.length == 0) {
+            var address = completeAddress(user);
+
+            Geoloc.getLocalisationData(address)
+                .then(locData => {
+                    Object.assign(user, locData);
+                    console.log('Ok');
+                    Object.assign(userToUpdate, user);
+                    return userToUpdate.save();
+                })
+                .then(updateUser => res.redirect("/profil"))
+                .catch(error => {
+                    console.error(error);
+                    res.render("profil", {title: "CaRea", form: user, error: error})
+                });
+        } else {
+            res.render("profil", {title: "CaRea", form: user, error: error})
+        }
     }
+
 
 };
 
