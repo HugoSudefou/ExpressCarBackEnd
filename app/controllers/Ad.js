@@ -3,16 +3,16 @@ var mongoose = require('mongoose'),
     Ad = mongoose.model('Ad');
 var validator = require('validator');
 
+console.log('GO');
 const Geoloc = require('../util/Geoloc');
-
-console.log('controller : Oui');
 
 function isEmpty(value){
     return value == undefined || value == "";
 }
 function isEmptyChamp(ad) {
-    return isEmpty(ad.object) || isEmpty(ad.start) || !validator.isEmail(ad.end) || isEmpty(ad.date) ||
-        isEmpty(ad.heure) || isEmpty(ad.brandCar) || isEmpty(ad.phoneNumber)
+    return isEmpty(ad.object) || isEmpty(ad.address) || isEmpty(ad.date) ||
+        isEmpty(ad.time) || isEmpty(ad.brandCar) || isEmpty(ad.phoneNumber) || isEmpty(ad.postalCode)
+        || isEmpty(ad.city) || isEmpty(ad.country)
 }
 
 function verifyIfPhoneAndFirstNameAreNotUndefined(user){
@@ -22,27 +22,45 @@ function verifyIfPhoneAndFirstNameAreNotUndefined(user){
 }
 
 //Creer un utilisateur
-var error = [];
 function passwordComparaison(user) {
     return user.password != user.passwordV;
 }
 
-function completeAddress(user) {
-    return user.address + ", " + user.postalCode + ", " + user.city + ", " + user.country;
+function completeAddress(ad) {
+    return ad.address + ", " + ad.postalCode + ", " + ad.city + ", " + ad.country;
 }
 
 
+var error = [];
+var errorBool = false;
 var Ad = {
     create: function (req, res) {
-        const user = req.body;
+        const ad = req.body;
         console.log('Create : Oui');
-        if (isEmptyChamp(user)) {
+        if (isEmptyChamp(ad)) {
             console.log('Manque un truc(s)')
-                error.push("un champ est incorrect ou manquant");
-            }
-        if (error.lenght == 0) {
-            console.log(user);
+            error.push("un champ est incorrect ou manquant");
+            var errorBool = true;
+        }
+        if (!errorBool) {
+            console.log('yes');
+            var address = completeAddress(ad);
+
+                Geoloc.getLocalisationData(address)
+                    .then(locData => {
+                        Object.assign(ad, locData);
+                        return Ad(ad).save();
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        res.render("signup", {title: "CaRea", form: req.body, error: error})
+                    });
             res.render("add", {title: "CaRea", form: req.body, error: error})
+        }
+        else
+        {
+            console.log('non');
+            res.render("add", {error: error, object: ad.object, address: ad.address, postalCode: ad.postalCode, date: ad.date, time: ad.time, brandCar: ad.brandCar, phoneNumber: ad.phoneNumber, city:ad.city, country: ad.country})
         }
     }
 };

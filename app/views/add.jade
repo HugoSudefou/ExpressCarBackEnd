@@ -53,39 +53,47 @@ html(lang='en')
             .col-md-offset-2.col-md-3
               .form-group
                 label(for='Nom') Objet
-                input#nom.form-control(type='text', name='object', maxlenght='100', placeholder='Objet')
-            .col-md-offset-2.col-md-7
-              .form-group
-                label(for='start') Départ
-                input#start.form-control(type='text', name='start', maxlenght='100', placeholder='Adresse de départ')
+                input#nom.form-control(type='text', name='object', maxlenght='100', placeholder='Objet', value="#{object || ''}")
           .row
-            .col-md-offset-2.col-md-7
+            .col-md-offset-2.col-md-3
               .form-group
-                label(for='end') Arrivé
-                input#end.form-control(type='text', name='end', maxlenght='100', placeholder="Adresse d'arrivé")
+                label(for='end') Addresse d'arrivé
+                input#end.form-control(type='text', name='address', maxlenght='100', placeholder="Adresse d'arrivé", value="#{address || ''}")
+            .col-md-offset-1.col-md-3
+              .form-group
+                label(for='postal') Code Postal
+                input#postal.form-control(type='text', name='postalCode', maxlength='30', placeholder='Zip code', value="#{postalCode || ''}")
+          .row
+            .col-md-offset-2.col-md-3
+              .form-group
+                label(for='ville') Ville
+                input#ville.form-control(type='text', name='city', maxlength='30', placeholder='City', value="#{city || ''}")
+            .col-md-offset-1.col-md-3
+              .form-group
+                label(for='country') Pays
+                input#country.form-control(type='text', name='country', maxlength='30', placeholder='Country', value="#{country || ''}")
           .row
             .col-md-offset-2.col-md-3
               .form-group
                 label(for='date') Date
-                input#date-heure.form-control(type='date', name='date', maxlenght='8', placeholder='Date')
+                input#date-heure.form-control(type='date', name='date', maxlenght='8', placeholder='Date', value="#{date || ''}")
             .col-md-offset-1.col-md-3
               .form-group
                 label(for='date') Heure
-                input#date-heure.form-control(type='time', name='heure', maxlenght='8', placeholder='Date')
-          .row
-            .col-md-offset-2.col-md-7
-              .form-group
-                label(for='car') Voiture
-                input#car.form-control(type='text', name='brandCar', maxlenght='30', placeholder='Marque, modèle et couleur')
-          br
+                input#date-heure.form-control(type='time', name='time', maxlenght='8', placeholder='Date', value="#{time || ''}")
           .row
             .col-md-offset-2.col-md-3
-              .input-group
-                span.input-group-addon.glyphicon.glyphicon-earphone
-                input.form-control(type='tel', name='phoneNumber', maxlenght='10', placeholder='Phone', aria-describedby='basic-addon1')
+              .form-group
+                label(for='car') Voiture
+                input#car.form-control(type='text', name='brandCar', maxlenght='30', placeholder='Marque, modèle et couleur', value="#{brandCar || ''}")
+          .row
+            .col-md-offset-2.col-md-3
+              .form-group
+                label(for='car') Téléphone
+                input.form-control(type='tel', name='phoneNumber', maxlenght='10', placeholder='Téléphone', aria-describedby='basic-addon1', value="#{phoneNumber || ''}")
           br
           .row
-            .col-md-offset-5.col-md-4
+            .col-md-offset-5.col-md-3
               button.btn.btn-success.btn.btn-success(type='Submit') Submit
     footer#footer.site-footer
       section.site-footer-bottom
