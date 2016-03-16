@@ -1,4 +1,6 @@
 require('../models/Ad');
+require('../models/User');
+
 var mongoose = require('mongoose'),
     Ad = mongoose.model('Ad');
 var validator = require('validator');

@@ -1,7 +1,6 @@
 body {
-    padding-bottom: 40px;
-    color: #5a5a5a;
-    /*background-image: */
+    padding-top: 200px;
+    background-color: #7f8c8d;
 }
 .main {
     background: none; 
@@ -25,16 +24,12 @@ form {
 -------------------------------------------------- */
 
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
-.glyphicon{
-    top: 0;
-}
 .navbar-wrapper {
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
     z-index: 20;
-    margin-top: 0;
 }
 
 /* Flip around the padding for proper display in narrow viewports */
@@ -64,7 +59,7 @@ form {
 -------------------------------------------------- */
 footer{
     position:relative;
-    top:70px;
+    top:130px;
 }
 .site-footer-bottom,  .site-footer a {
     background-color: #191919;

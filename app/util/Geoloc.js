@@ -1,10 +1,15 @@
 const axios = require('axios');
 
+const checkIsAResult = response =>{
+    if(response.data.status != "OK")
+        throw Error('Address was not found');
+    return response;
+};
 var extractFirstResult = response => response.data.results[0];
 
 const checkHasStreetNumber = result => {
     if (result.address_components[0].types[0] != 'street_number')
-        throw Error('Incomplete Address')
+        throw Error('Incomplete Address');
     return result
 };
 
@@ -27,6 +32,7 @@ const Geoloc = {
                 key: 'AIzaSyBh-ZMhtx_g97Xs2ZLBryqd8ldApqo_veI'
             }
         })
+        .then(checkIsAResult)
         .then(extractFirstResult)
         .then(checkHasStreetNumber)
         .then(extractAddressData)
