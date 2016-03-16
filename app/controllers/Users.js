@@ -50,7 +50,7 @@ var Users = {
             if (verifyIfPhoneAndFirstNameAreNotUndefined(user)) {
                 error.push("Certaines valeurs sont incorrect");
             }
-
+            
             User.findOne({username: user.username}, function (err, userInBase) {
                 if (userInBase) {
                     error.push("this username already exist");
