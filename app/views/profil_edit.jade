@@ -10,7 +10,7 @@ html(lang='en')
     link(rel='icon', href='../../favicon.ico')
     title Carea
     // Bootstrap core CSS
-    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', rel='stylesheet')
+    link(href='../Stylesheets/bootstrap/bootstrap.css', rel='stylesheet')
     script(src='https://code.jquery.com/jquery-1.11.3.min.js')
     script(src='app.js')
     // jQuery (necessary for Bootstrap's JavaScript plugins)
@@ -19,7 +19,7 @@ html(lang='en')
     // Latest compiled and minified JavaScript
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
     // Custom styles for this template
-    link(rel='stylesheet', type='text/css', href='../Stylesheets/edit.css')
+    link(rel='stylesheet', type='text/css', href='../Stylesheets/Style.css')
   // NAVBAR ==================================================
   body
     .navbar-wrapper
@@ -36,70 +36,91 @@ html(lang='en')
             #navbar.navbar-collapse.collapse
               ul.nav.navbar-nav
                 li
-                  a(href='#about') A propos / About
+                  a(href='about.html') A propos / About
               ul.nav.navbar-nav.navbar-right
                 li.active
-                  a(href='index_signup.html')
+                  a(href='signup.html')
                     span.glyphicon.glyphicon-user
                     |  S'inscrire / Sign up
                 li
-                  a(href='index_signin.html')
+                  a(href='signin.html')
                     span.glyphicon.glyphicon-log-in
                     |  Se connecter / Sign in
-    // Contenu de la page de profil
-    .container(margin='top')
+    br
+    br
+    br
+    br
+    br
+    // Page de profil
+    .container-fluid
       .row
-        .col-md-5.toppad.pull-right.col-md-offset-3
-        .col-xs-12.col-sm-12.col-md-6.col-lg-6.col-xs-offset-0.col-sm-offset-0.col-md-offset-3.col-lg-offset-3.toppad
-          div
-            .panel-heading
-              h3  User Profil 
-            .panel-body
-              .row
-                .col-md-3.col-lg-3(align='center')
-                  img.img-circle.img-responsive(alt='User Pic', src='http://strackstation.net/images/profile.png')
-                .col-md-9.col-lg-9
-                  table#table.table.table-user-information
-                    tbody
-                      tr
-                        td First Name:
-                        td
-                      tr
-                        td Last Name
-                        td
-                      tr
-                        td Pseudo:
-                        td
-                          form(method='post', action='modif.php')
-                            input(type='text', name='pseudo', maxlength='20')
-                      tr
-                        td Country
-                        td
-                          form(method='post', action='modif.php')
-                            input(type='text', name='pseudo', maxlength='20')
-                      tr
-                        td Home Address
-                        td
-                          form(method='post', action='modif.php')
-                            input(type='text', name='pseudo', maxlength='40')
-                      tr
-                        td Email
-                        td
-                          form(method='post', action='modif.php')
-                            input(type='text', name='pseudo', maxlength='40')
-                      td Phone Number
-                      td
-                        form(method='post', action='modif.php')
-                          input(type='text', name='pseudo', maxlength='15')
-                      tr
-                        td Zip Code:
-                        td
-                          form(method='post', action='modif.php')
-                            input(type='text', name='pseudo', maxlength='10')
-                  div
-                    form
-                      input.btn.btn-success.btn.btn-success(type='submit', name='nom', value=' Save ')
-    // FOOTER
+        .col-sm-offset-3.col-md-6
+          form(action='profilEdit', method='post', style='text-align:center')
+            input(type='hidden', name='_csrf', value='csrf')
+            .row
+              .col-md-offset-2.col-md-6
+                h1(style='color:#101010') Edition de profil
+                br
+                br
+                .form-group
+                  label(for='firstName') Nom
+                  input.form-control(type='text', name='firstName', disabled='disabled')
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='lastName') Prénom
+                  input.form-control(type='text', name='lastName', disabled='disabled')
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='timeA') Pseudo
+                  input.form-control(type='text', name='username', disabled='disabled')
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='phone') Mobile
+                  input.form-control(type='tel', name='phone')
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='voiture') Adresse de domicile
+                  input.form-control(type='text', name='adresseDomicile')
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='mail') Adresse Email
+                  input.form-control(type='text', name='email')
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='voiture') Avez-vous un vehicule ?
+                  select#voiture(name='voiture')
+                    option(value='Oui') Oui
+                    option(value='Non') Non
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='voiture') Combien de place avez-vous dans votre voiture ?
+                  select#voiture(name='voiture')
+                    option(value='Oui') 1
+                    option(value='Non') 2
+                    option(value='Non') 3
+                    option(value='Non') 4
+                    option(value='Non') 5
+                    option(value='Non') 6
+                    option(value='Non') 7
+            br
+            br
+            br
+            .row
+              .col-md-12
+                .col-md-offset-2.col-md-6
+                  input.btn.btn-secondary.btn-fat(type='submit', value='Sauvegarder')
+              br
+              br
+    br
+    br
+    br
     footer#footer.site-footer
       section.site-footer-bottom
         ul.display

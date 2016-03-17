@@ -1,6 +1,6 @@
 doctype html
 html(lang='en')
-  head  
+  head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
@@ -8,71 +8,75 @@ html(lang='en')
     meta(name='description', content='')
     meta(name='author', content='')
     link(rel='icon', href='../../favicon.ico')
-    title CARea
+    title Carea
+    // Bootstrap core CSS
+    link(href='../stylesheets/bootstrap/bootstrap.min.css', rel='stylesheet')
     script(src='https://code.jquery.com/jquery-1.11.3.min.js')
-    script(src='/javascripts/bootstrap.js')
+    script(src='app.js')
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    // Include all compiled plugins (below), or include individual files as needed
+    // Latest compiled and minified JavaScript
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
-    link(href='/stylesheets/bootstrap/bootstrap.css', rel='stylesheet', type='text/css')
-    link(href='/stylesheets/carousel.css', rel='stylesheet', type='text/css')
+    // Custom styles for this template
+    link(href='../stylesheets/Style.css', rel='stylesheet')
   //
-    NAVBAR
+    Header picture
     ==================================================
   body
-    .navbar-wrapper
-      .container
-        nav.navbar.navbar-inverse.navbar-static-top
-          .container
-            .navbar-header
-              button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-                span.sr-only Toggle navigation
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-              a.navbar-brand(href='/index') CARea
-            #navbar.navbar-collapse.collapse
-              ul.nav.navbar-nav
-                li
-                  a(href='/about') A propos / About
-              ul.nav.navbar-nav.navbar-right
-                li
-                  a(href='/signup')
-                    span.glyphicon.glyphicon-user
-                    |  S'inscrire / Sign up
-                li
-                  a(href='/signin')
-                    span.glyphicon.glyphicon-log-in
-                    |  Se connecter / Sign in
-    //
-      Carousel
-      ==================================================
-    #myCarousel.carousel.slide(data-ride='carousel')
-      // Indicators
-      ol.carousel-indicators
-        li.active(data-target='#myCarousel', data-slide-to='0')
-        li(data-target='#myCarousel', data-slide-to='1')
-        li(data-target='#myCarousel', data-slide-to='2')
-      .carousel-inner(role='listbox')
-        .item.active
-          img.first-slide(src='Pages/Images/logo_header.jpg', alt='First slide', style='size: 0 auto')
-          .container
-            .carousel-caption
-              h1 CARea
-              p
-                a.btn.btn-secondary.btn-fat(href='Pages/index_signup.html', role='button') S'inscrire
-        .item
-          img.second-slide(src='Pages/Images/prochainement.jpg', alt='Second slide')
+    .container-fluid
+      .row
+        .col-sm-12
+          img.img(src='../images/header_pic.png')
           .container
             .carousel-caption
               p
-                a.btn.btn-secondary.btn-fat(href='#', role='button') Prochainement
-      a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
-        span(aria-hidden='true') <
-        span.sr-only Previous
-      a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
-        span(aria-hidden='true') >
-        span.sr-only Next
-    // /.carousel
+                a.btn.btn-secondary.btn-fat(href='/signup', role='button') Sign up today
+              p
+              h4
+                | You already have an account ?
+                a(href='/signin')  Sign in 
+              p
+    // START THE FEATURETTES
+    .container-fluid
+      .row
+        .col-sm-12
+          h2.featurette-heading(style='text-align:center')
+            | Joindre l'utile à l'agreable
+            span.text-muted
+          p.lead(style='text-align:center')
+            | -Les objectifs de CARea sont de s’inscrire dans une démarche
+            br
+            |                         éco-responsable dont les bénéfices attendus seront à la fois
+            br
+            |                         économiques (baisse des coûts imputés aux transports par 2, 
+            br
+            |                         3 voire 4 sur les trajets domicile/travail/commerces), 
+            br
+            |                         sociaux (amélioration des conditions de vie et du dialogue 
+            br
+            |                         social, tissage de liens social dans les quartiers). 
+            br
+            |                         -Bénéfices environnementaux (limitation des nuisances
+            br
+            |                         sonores, des gaz à effet de serre, réduction de la demande
+            br
+            |                         énergétique, réduction des besoins en espace de stationnement).
+    .container-fluid
+      .row
+        .col-sm-12
+          h2.featurette-heading(style='text-align:center')
+            | Vraiment Friendly* ! 
+            span.text-muted
+          p.lead(style='text-align:center')
+            | Notre principal objectif est de favoriser la diminution des frais de déplacement des usagers, d’améliorer leur pouvoir de 
+            br
+            |                         se déplacer en toute occasion, de créer des réseaux de solidarité. Notre base de données et nos conseillers en mobilités sont là pour les y aider.
+          h5(style='text-align:center') *Friendly = amical
+    // /END THE FEATURETTES
+    br
+    br
+    br
     //
       Marketing messaging and featurettes
       ==================================================
@@ -81,76 +85,38 @@ html(lang='en')
       // Three columns of text below the carousel
       .row
         .col-lg-4
-          img.img-circle(src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==', alt='Generic placeholder image', width='140', height='140')
-          h2 Heading
+          img.img-circle(src='../images/amandine.jpg', alt='Generic placeholder image', width='140', height='140')
+          h2 Amandine (Marseille)
           p
-            | Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
-          p
-            a.btn.btn-default(href='#', role='button') View details »
+            | "Depuis que j'utilise CARea, je suis beaucoup plus proche de mes voisins ! C'est très convivial."
         // /.col-lg-4
         .col-lg-4
-          img.img-circle(src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==', alt='Generic placeholder image', width='140', height='140')
-          h2 Heading
-          p
-            | Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
-          p
-            a.btn.btn-default(href='#', role='button') View details »
+          img.img-circle(src='../images/genevieve.jpg', alt='Generic placeholder image', width='140', height='140')
+          h2 Geneviève (Lyon)
+          p "J'adore conduire, surtout quand je peux être utile à quelqu'un."
         // /.col-lg-4
         .col-lg-4
-          img.img-circle(src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==', alt='Generic placeholder image', width='140', height='140')
-          h2 Heading
+          img.img-circle(src='../images/paul.jpg', alt='Generic placeholder image', width='140', height='140')
+          h2 Paul (Paris)
           p
-            | Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          p
-            a.btn.btn-default(href='#', role='button') View details »
+            | "C'est simple et économique, on rend des petits services en gagnant un peu d'argent, ça rembourse l'essence !"
         // /.col-lg-4
       // /.row
-      // START THE FEATURETTES
-      hr.featurette-divider
-      .row.featurette
-        .col-md-7
-          h2.featurette-heading
-            | First featurette heading. 
-            span.text-muted It'll blow your mind.
-          p.lead
-            | Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-        .col-md-5
-          img.featurette-image.img-responsive.center-block(data-src='holder.js/500x500/auto', alt='Generic placeholder image')
-      hr.featurette-divider
-      .row.featurette
-        .col-md-7.col-md-push-5
-          h2.featurette-heading
-            | Oh yeah, it's that good. 
-            span.text-muted See for yourself.
-          p.lead
-            | Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-        .col-md-5.col-md-pull-7
-          img.featurette-image.img-responsive.center-block(data-src='holder.js/500x500/auto', alt='Generic placeholder image')
-      hr.featurette-divider
-      .row.featurette
-        .col-md-7
-          h2.featurette-heading
-            | And lastly, this one. 
-            span.text-muted Checkmate.
-          p.lead
-            | Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-        .col-md-5
-          img.featurette-image.img-responsive.center-block(data-src='holder.js/500x500/auto', alt='Generic placeholder image')
-      hr.featurette-divider
-    // FOOTER
-    footer#footer.site-footer
-      section.fluid-container
-        .site-footer-top
-      section.site-footer-bottom
-        ul.display
-          li.dispi
-            ul.dispi
-              li.dispi
-                | ©2016 CORP.
-                a  
-              li.dispi
-                a(href='#') Legal Notice
-                a  
-              li.dispi
-                a(href='#') Terms of use
+      br
+      br
+      footer#footer.site-footer
+        section.fluid-container
+          .site-footer-top
+        section.site-footer-bottom
+          ul.display
+            li.dispi
+              ul.dispi
+                li.dispi
+                  | ©2016 CARea
+                  a  
+                li.dispi
+                  a(href='#') Legal Notice
+                  a  
+                li.dispi
+                  a(href='/faq') FAQ
 // /.container
