@@ -17,6 +17,9 @@ var Files = {
 
     signUp: function(req,res){
         res.render('signup', {form:{}});
+    },
+    construct: function(req,res){
+        res.render('construct');
     }
 
 };

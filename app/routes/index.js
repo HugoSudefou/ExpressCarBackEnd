@@ -22,10 +22,15 @@ router.get('/add', function(req,res){
 router.get('/', Files.index);
 router.get('/index', Files.index);
 
+
+router.get('/construct', Files.construct);
+
 router.get('/about',Files.about);
 
 router.get('/signUp', Files.signUp);
 router.post('/signup',Users.create);
+
+
 
 router.get('/signin',isNotClient, Files.signIn);
 router.post('/signin', isNotClient, Users.signIn);

@@ -4,23 +4,22 @@ html(lang='en')
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    //- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
     meta(name='description', content='')
     meta(name='author', content='')
+    link(rel='icon', href='../../favicon.ico')
     title Carea
+    // Bootstrap core CSS
+    link(href='../stylesheets/bootstrap/bootstrap.css', rel='stylesheet')
+    script(src='https://code.jquery.com/jquery-1.11.3.min.js')
+    script(src='app.js')
     // jQuery (necessary for Bootstrap's JavaScript plugins)
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
-    script(src='/javascripts/bootstrap.min.js')
-    script(src='/javascripts/angular.min.js')
-    //script(src='/javascripts/app.js')
     // Include all compiled plugins (below), or include individual files as needed
     // Latest compiled and minified JavaScript
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
     // Custom styles for this template
-    // Bootstrap core CSS
-    link(href='/stylesheets/bootstrap/bootstrap.css', rel='stylesheet', type='text/css')
-    link(href='/stylesheets/carousel.css', rel='stylesheet')
-    link(href='/stylesheets/signup.css', rel='stylesheet')
-    //link(href='/stylesheets/style.css', rel='stylesheet')
+    link(href='../stylesheets/Style.css', rel='stylesheet')
   //
     NAVBAR
     ==================================================
@@ -49,78 +48,87 @@ html(lang='en')
                   a(href='/signin')
                     span.glyphicon.glyphicon-log-in
                     |  Se connecter / Sign in
+    br
+    br
+    br
+    br
     .container.marketing
       .row
-        .col-md-offset-2.col-md-8
-          .main
-            h1  Sign up 
-        .row
-          form.form-horizontal(action='/signup' name='signup', role='form', method='post', accept-charset='utf-8')
-            .row
-              .col-md-offset-2.col-md-3
-                .form-group
-                  label(for='Nom') Pseudo
-                  input#pseudo.form-control(type='text', name='username', maxlength='15', placeholder='Pseudo')
-            .row
-              .col-md-offset-2.col-md-3
-                .form-group
-                  label(for='Nom') Name
-                  input#nom.form-control(type='text', name='name', maxlength='20', placeholder='Name', value = form.name)
-              .col-md-offset-1.col-md-3
-                .form-group
-                  label(for='Prenom') First Name
-                  input#prenom.form-control(type='text', name='firstName', maxlength='20', placeholder='First Name', value = form.firstName)
-            .row
-              .col-md-offset-2.col-md-7
-                .form-group
-                  label(for='Email') Mail address
-                  input#email.form-control(type='text', name='email', maxlength='30', placeholder='Mail', value = form.email)
-            .row
-              .col-md-offset-2.col-md-7
-                .form-group
-                  label(for='postal') Zip code
-                  input#postal.form-control(type='text', name='postalCode', maxlength='30', placeholder='Zip code', value = form.postalCode)
-            .row
-              .col-md-offset-2.col-md-7
-                .form-group
-                  label(for='ville') City
-                  input#ville.form-control(type='text', name='city', maxlength='30', placeholder='City', value = form.city)
-            .row
-              .col-md-offset-2.col-md-7
-                .form-group
-                  label(for='country') Country
-                  input#country.form-control(type='text', name='country', maxlength='30', placeholder='Country', value = form.country)
-            .row
-              .col-md-offset-2.col-md-3
-                .form-group
-                  label(for='Password') Password
-                  input#password.form-control(type='password', name='password', maxlength='20', placeholder='Password')
-              .col-md-of.fset-1.col-md-3
-                .form-group
-                  label(for='Vpassword') Password verification
-                  input#vpassword.form-control(type='password', name='passwordV', maxlength='20', placeholder='Password verification')
-            .row
-              .col-md-offset-2.col-md-3
-                .input-group
-                  span.input-group-addon.glyphicon.glyphicon-earphone
-                  input.form-control(type='text', maxlength='20', placeholder='Phone',name='phoneNumber' aria-describedby='basic-addon1', value = form.phoneNumber)
-                .input-group
-                  span.input-group-addon.glyphicon.glyphicon-globe
-                  input.form-control(type='text', maxlength='20', placeholder='Address', name='address', aria-describedby='basic-addon1', value = form.address)
-            br
-            .row
-              .col-md-offset-5.col-md-1
-                input(type='submit', value='Submit')
-    footer#footer.site-footer
-      section.site-footer-bottom
-        ul.display
-          li.dispi
-            ul.dispi
-              li.dispi
-                | ©2016 CORP.
-                a  
-              li.dispi
-                a(href='#') Legal Notice
-                a  
-              li.dispi
-                a(href='#') Terms of use
+        div(style='text-align:center')
+          p
+          h1 Sign up
+          p
+        form.form-horizontal(action='/users/login', name='signup', role='form', method='post', accept-charset='utf-8')
+          input(type='hidden', name='_csrf', value='csrf')
+          .col-md-offset-2.col-md-3
+            .form-group
+              label(for='Nom') Pseudo
+              input#try.form-control(type='text', name='pseudo', maxlength='15', placeholder='Pseudo', style='text-align:center')
+      .row
+        .col-md-offset-2.col-md-3
+          .form-group
+            label(for='Nom') Nom
+            input#nom.form-control(type='text', name='name', maxlenght='20', placeholder='Nom', value=form.name)
+        .col-md-offset-1.col-md-3
+          .form-group
+            label(for='Prenom') Prénom
+            input#prenom.form-control(type='text', name='firstName', maxlenght='20', placeholder='Prénom', value=form.fisrtName)
+      .row
+        .col-md-offset-2.col-md-7
+          .form-group
+            label(for='Email') Email
+            input#email.form-control(type='text', name='email', maxlenght='30', placeholder='Email', value=form.email)
+      .row
+        .col-md-offset-2.col-md-7
+          .form-group
+            label(for='postal') Code Postal
+            input#postal.form-control(type='text', name='postalCode', maxlenght='30', placeholder='Code Postal', value=form.postalCode)
+      .row
+        .col-md-offset-2.col-md-7
+          .form-group
+            label(for='ville') Ville
+            input#ville.form-control(type='text', name='city', maxlenght='30', placeholder='Ville', value=form.city)
+      .row
+        .col-md-offset-2.col-md-7
+          .form-group
+            label(for='country') Pays
+            input#country.form-control(type='text', name='country', maxlenght='30', placeholder='Pays', value=form.country)
+      .row
+        .col-md-offset-2.col-md-3
+          .form-group
+            label(for='Password') Mot de passe
+            input#password.form-control(type='password', name='password', maxlenght='20', placeholder='Mot de passe')
+        .col-md-of.fset-1.col-md-3
+          .form-group
+            label(for='Vpassword') Vérification
+            input#vpassword.form-control(type='password', name='passwordV', maxlength='20', placeholder='Vérification')
+      .row
+        .col-md-offset-2.col-md-3
+          .input-group
+            span.input-group-addon.glyphicon.glyphicon-earphone
+            input.form-control(type='text', maxlenght='20', placeholder='Téléphone', name='phoneNumber',aria-describedby='basic-addon1', value =form.phoneNumber)
+          .input-group
+            span.input-group-addon.glyphicon.glyphicon-globe
+            input.form-control(type='text', maxlenght='20', placeholder='Adresse',name='address', aria-describedby='basic-addon1', value=form.address)
+      br
+      .row
+        .col-md-offset-5.col-md-1
+          button.btn.btn-success.btn-fat(type='button') Submit
+    br
+    br
+    br
+    br
+    .footer-p
+      footer#footer.site-footer
+        section.site-footer-bottom
+          ul.display
+            li
+              ul
+                li.dispi
+                  | ©2016 CARea
+                  a  
+                li.dispi
+                  a(href='#') Legal Notice
+                  a  
+                li.dispi
+                  a(href='faq.html') FAQ
