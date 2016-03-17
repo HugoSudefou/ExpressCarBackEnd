@@ -26,5 +26,8 @@ router.get('/profil', isClient, Users.viewProfil);
 router.get('/updateProfil', Files.updateProfil);
 router.post('/updateProfil', isClient, Users.update);
 router.get('/signout', isClient, Users.signOut);
+router.get('/annonce', isClient, Files.annonce);
+router.get('/add', isClient, Files.add);
+router.get('/rechA', isClient, Files.rechA);
 
 module.exports = router;

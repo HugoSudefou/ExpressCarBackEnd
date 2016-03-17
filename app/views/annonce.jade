@@ -31,7 +31,7 @@ html(lang='en')
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     // Custom styles for this template
-    link(rel='stylesheet', type='text/css', href='../stylesheets/Style.css')
+    link(rel='stylesheet', type='text/css', href='../Stylesheets/Style.css')
   //
     NAVBAR
     ==================================================
@@ -40,34 +40,57 @@ html(lang='en')
       include ./navbar_connect.jade
     else
       include ./navbar_unconnect.jade
-    .container-fluid.marg-nav
+      .container-fluid.marg-nav
       .row
         .col-sm-12
-          h1(style='text-align:center') CARea
+          h1(style='text-align:center;color:black') CARea
     .container-fluid
       .row
         .col-sm-12
           h3(style='text-align:center') Annonces proche de vous
     // Corps de présentation
+    br
+    br
     .container-fluid
       .row
         .col-sm-6
-          .list-group(style='text-align:center')
-            a.list-group-item(href='#') item 1
-            a.list-group-item(href='#') item 2
-            a.list-group-item(href='#') item 3
-            a.list-group-item(href='#') item 4
-            a.list-group-item(href='#') item 5
-            a.list-group-item(href='#') item 6
-            a.list-group-item(href='#') item 7
-            a.list-group-item(href='#') item 8
-            a.list-group-item(href='#') item 9
-            a.list-group-item(href='#') item 10
-            a.list-group-item(href='#') item 11
-            a.list-group-item(href='#') item 12
+          .list-group
+            a.list-group-item(href='#')
+              .row
+                p.col-xs-6
+                  | Super Ami
+                  br
+                  |                                     Je propose une voiture
+                  br
+                  |                                     Marseille
+                  br
+                  |                                     superAmi@carea.com
+                  br
+                p.col-xs-6
+                  | le 02/05/16
+                  br
+                  |                                     à 13h30
+                  br
+                  |                                     0606060606
+                  br
+                  |                                     3 places disponibles
+            a.list-group-item(href='#') Item 2
+            a.list-group-item(href='#') Item 3
+            a.list-group-item(href='#') Item 4
+            a.list-group-item(href='#') Item 5
+            a.list-group-item(href='#') Item 6
+            a.list-group-item(href='#') Item 7
+            a.list-group-item(href='#') Item 8
+            a.list-group-item(href='#') Item 9
+            a.list-group-item(href='#') Item 10
+            a.list-group-item(href='#') Item 11
         .container-fluid
           .col-sm-6
-            #googleMap.img-responsive(style='width:620px;height:553px')
+            #googleMap.img-responsive(style='width:100%;height:600px')
+    br
+    br
+    br
+    .clear
     .footer-p
       footer#footer.site-footer
         section.site-footer-bottom

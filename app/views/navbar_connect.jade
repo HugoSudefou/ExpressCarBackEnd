@@ -2,7 +2,7 @@
   .container
     nav.navbar.navbar-inverse.navbar-static-top
       .container
-        .navbar-header
+        .navbar-header.marg-l
           button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
             span.sr-only Toggle navigation
             span.icon-bar
@@ -13,7 +13,15 @@
           ul.nav.navbar-nav
             li
               a(href='/about') A propos / About
-          ul.nav.navbar-nav.navbar-right
+          ul.nav.navbar-nav.navbar-right.marg-r
+            li
+              a(href='/users/rechA')
+                span.glyphicon.glyphicon-search
+                | Rechercher une Annonce
+            li
+              a(href='/users/add')
+                span.glyphicon.glyphicon-tasks
+                | Créer une annonce
             li
               a(href='/users/profil')
                 span.glyphicon.glyphicon-tasks

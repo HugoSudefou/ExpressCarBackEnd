@@ -13,13 +13,6 @@ function isNotClient(req, res, next) {
 }
 /* GET home page. */
 
-router.get('/ad', function (req, res) {
-    res.render('ad');
-});
-router.get('/add', function (req, res) {
-    res.render('add');
-});
-
 router.get('/', Files.index);
 router.get('/index', Files.index);
 

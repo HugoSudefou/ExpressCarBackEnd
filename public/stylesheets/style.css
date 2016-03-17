@@ -54,7 +54,9 @@ a {
 }
 
 .list-group {
-
+    
+    width: 100%;
+    height: 600px;
     border-width: 30px;
     border-color: #191919;
     border-style: solid;
@@ -105,6 +107,14 @@ a {
 .marg-nav {
 
     margin-top: 50px;
+}
+
+.marg-r {
+    margin-right: 0;
+}
+
+.marg-l {
+    margin-left: 10px !important;
 }
 
 /* RESPONSIVE CSS
@@ -199,7 +209,7 @@ a {
 -------------------------------------------------- */
 
 .footer-p{
-    position:absolute;
+    position:fixed;
     bottom: 0;
     width: 100%;
 

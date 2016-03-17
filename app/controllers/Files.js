@@ -27,6 +27,14 @@ var Files = {
         res.render('signup', {form:{}, session: req.session.isAuthentificated});
     },
 
+    annonce: function(req, res){
+      res.render('annonce', {session: req.session.isAuthentificated})
+    },
+
+    rechA: function(req, res){
+      res.render('rechA', {session: req.session.isAuthentificated})
+    },
+
     updateProfil: function(req, res){
         User.findOne({email: req.session.email}).exec()
             .then(user =>{

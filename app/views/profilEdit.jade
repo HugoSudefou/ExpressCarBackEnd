@@ -29,7 +29,7 @@ html(lang='en')
     // Page de profil
     .container-fluid.marg-nav
       .row
-        .col-sm-offset-3.col-md-6
+        .col-sm-offset-3.col-md-8
           form(action='profilEdit', method='post', style='text-align:center')
             input(type='hidden', name='_csrf', value='csrf')
             .row
@@ -39,51 +39,51 @@ html(lang='en')
                 br
                 .form-group
                   label(for='firstName') Nom
-                  input.form-control(type='text', name='firstName', disabled='disabled')
+                  input.form-control(type='text', name='firstName', disabled='disabled', value=user.name)
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='lastName') Prénom
-                  input.form-control(type='text', name='lastName', disabled='disabled')
+                  input.form-control(type='text', name='lastName', disabled='disabled', value=user.firstName)
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='timeA') Pseudo
-                  input.form-control(type='text', name='username', disabled='disabled')
+                  input.form-control(type='text', name='username', disabled='disabled', value=user.username)
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='phone') Mobile
-                  input.form-control(type='tel', name='phone')
+                  input.form-control(type='tel', name='phone', value=user.phoneNumber)
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='voiture') Adresse de domicile
-                  input.form-control(type='text', name='adresseDomicile')
+                  input.form-control(type='text', name='adresseDomicile', value=user.address)
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='mail') Adresse Email
-                  input.form-control(type='text', name='email')
+                  input.form-control(type='text', name='email', value=user.email)
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='voiture') Avez-vous un vehicule ?
-                  select#voiture(name='voiture')
+                  select#voiture.form-control(name='voiture')
                     option(value='Oui') Oui
                     option(value='Non') Non
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='voiture') Combien de place avez-vous dans votre voiture ?
-                  select#voiture(name='voiture')
-                    option(value='Oui') 1
-                    option(value='Non') 2
-                    option(value='Non') 3
-                    option(value='Non') 4
-                    option(value='Non') 5
-                    option(value='Non') 6
-                    option(value='Non') 7
+                  select#voiture.form-control(name='voiture')
+                    option(value='1') 1
+                    option(value='2') 2
+                    option(value='3') 3
+                    option(value='4') 4
+                    option(value='5') 5
+                    option(value='6') 6
+                    option(value='7') 7
             .row
               .col-md-12
                 .col-md-offset-2.col-md-6
