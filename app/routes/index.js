@@ -30,4 +30,6 @@ router.post('/signup', isNotClient, Users.create);
 
 router.get('/signin', isNotClient, Files.signIn);
 router.post('/signin', isNotClient, Users.signIn);
+
+router.get('/signout', Users.signOut);
 module.exports = router;

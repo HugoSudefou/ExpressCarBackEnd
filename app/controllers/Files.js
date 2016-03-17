@@ -8,29 +8,29 @@ var mongoose = require('mongoose'),
 
 var Files = {
     index: function(req, res){
-        res.render('index', { title: 'Express' });
+        res.render('index', { title: 'Express', session: req.session.isAuthentificated});
     },
 
     about: function(req,res){
-        res.render('about');
+        res.render('about', {session: req.session.isAuthentificated});
     },
 
     add: function(req, res){
-      res.render('add')
+      res.render('add', {session: req.session.isAuthentificated})
     },
 
     signIn: function(req,res){
-        res.render('signin');
+        res.render('signin', {session: req.session.isAuthentificated});
     },
 
     signUp: function(req,res){
-        res.render('signup', {form:{}});
+        res.render('signup', {form:{}, session: req.session.isAuthentificated});
     },
 
     updateProfil: function(req, res){
         User.findOne({email: req.session.email}).exec()
             .then(user =>{
-                res.render('profilEdit',{user: user})
+                res.render('profilEdit',{user: user, session: req.session.isAuthentificated})
             }).catch(error => console.log(error))
 
     }
