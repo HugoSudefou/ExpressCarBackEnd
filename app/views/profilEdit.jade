@@ -1,0 +1,128 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='../../favicon.ico')
+    title Carea
+    // Bootstrap core CSS
+    link(href='../Stylesheets/bootstrap/bootstrap.css', rel='stylesheet')
+    script(src='https://code.jquery.com/jquery-1.11.3.min.js')
+    script(src='app.js')
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    // Include all compiled plugins (below), or include individual files as needed
+    // Latest compiled and minified JavaScript
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+    // Custom styles for this template
+    link(rel='stylesheet', type='text/css', href='../Stylesheets/Style.css')
+  // NAVBAR ==================================================
+  body
+    .navbar-wrapper
+      .container
+        nav.navbar.navbar-inverse.navbar-static-top
+          .container
+            .navbar-header
+              button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.navbar-brand(href='../index.html') CARea
+            #navbar.navbar-collapse.collapse
+              ul.nav.navbar-nav
+                li
+                  a(href='about.html') A propos / About
+              ul.nav.navbar-nav.navbar-right
+                li.active
+                  a(href='signup.html')
+                    span.glyphicon.glyphicon-user
+                    |  S'inscrire / Sign up
+                li
+                  a(href='signin.html')
+                    span.glyphicon.glyphicon-log-in
+                    |  Se connecter / Sign in
+    br
+    br
+    br
+    br
+    br
+    // Page de profil
+    .container-fluid
+      .row
+        .col-sm-offset-3.col-md-6
+          form(action='/users/updateProfil', method='post', style='text-align:center')
+            input(type='hidden', name='_csrf', value='csrf')
+            .row
+              .col-md-offset-2.col-md-6
+                h1(style='color:#101010') Edition de profil
+                br
+                br
+                .form-group
+                  label(for='firstname') Nom
+                  div.form-control= 'test'
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='lastName') Prénom
+                  div.form-control(type='text', name='name', disabled='disabled')= user.name
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='timeA') Pseudo
+                  input.form-control(type='text', name='username', value = user.username)
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='phone') Mobile
+                  input.form-control(type='tel', name='phoneNumber', value = user.phoneNumber)
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='timeA') Mot de Passe
+                  input.form-control(type='pasword', name='password')
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='phone') Verification Mot de Passe
+                  input.form-control(type='password', name='passwordV')
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='voiture') Adresse de domicile
+                  input.form-control(type='text', name='adress', value = user.address)
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='mail') Adresse Email
+                  input.form-control(type='text', name='email', value = user.email)
+
+            br
+            br
+            br
+            .row
+              .col-md-12
+                .col-md-offset-2.col-md-6
+                  input.btn.btn-secondary.btn-fat(type='submit', value='Sauvegarder')
+              br
+              br
+    br
+    br
+    br
+    footer#footer.site-footer
+      section.site-footer-bottom
+        ul.display
+          li.dispi
+            ul.dispi
+              li.dispi
+                | ©2016 CORP.
+                a
+              li.dispi
+                a(href='#') Legal Notice
+                a
+              li.dispi
+                a(href='#') Terms of use

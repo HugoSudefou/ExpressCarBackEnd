@@ -17,7 +17,7 @@ const extractAddressData = result => {
     const addressComponents = result.address_components;
     const location = result.geometry.location;
     return {
-        address: addressComponents[0].long_name + " "+ addressComponents[1].long_name,
+        address: addressComponents[0].long_name + " " + addressComponents[1].long_name,
         postalCode: addressComponents[6].long_name,
         city: addressComponents[2].long_name,
         country: addressComponents[5].long_name,

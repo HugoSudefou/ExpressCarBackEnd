@@ -10,16 +10,15 @@ html(lang='en')
     link(rel='icon', href='../../favicon.ico')
     title Carea
     // Bootstrap core CSS
-    link(href='../Stylesheets/bootstrap/bootstrap.min.css', rel='stylesheet')
+    link(href='/stylesheets/bootstrap/bootstrap.min.css', rel='stylesheet')
     script(src='https://code.jquery.com/jquery-1.11.3.min.js')
-    script(src='app.js')
     // jQuery (necessary for Bootstrap's JavaScript plugins)
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
     // Include all compiled plugins (below), or include individual files as needed
     // Latest compiled and minified JavaScript
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
     // Custom styles for this template
-    link(href='../Stylesheets/signup.css', rel='stylesheet')
+    link(href='/stylesheets/signup.css', rel='stylesheet')
   //
     NAVBAR
     ==================================================
@@ -28,14 +27,13 @@ html(lang='en')
       .container
         nav.navbar.navbar-inverse.navbar-static-top
           .container
-            .navbar-header
+            #navbar.navbar-collapse.collapse.navbar-header
               button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
                 span.sr-only Toggle navigation
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
               a.navbar-brand(href='../index.html') Carea
-            #navbar.navbar-collapse.collapse
               ul.nav.navbar-nav
                 li
                   a(href='index_about.html') A propos / About
@@ -48,47 +46,55 @@ html(lang='en')
                   a(href='index_signin.html')
                     span.glyphicon.glyphicon-log-in
                     |  Se connecter / Sign in
-    br
-    br
-    br
-    br
     .container.marketing
       .row
-        form.form-horizontal(action='user/creaA', name='creaA', role='form', method='post', accept-charset='utf-8')
-      .row
-        .col-md-offset-2.col-md-3
-          .form-group
-            label(for='Nom') Objet
-            input#nom.form-control(type='text', name='object', maxlenght='20', placeholder='Objet')
-        .col-md-offset-2.col-md-7
-          .form-group
-            label(for='start') Départ
-            input#start.form-control(type='text', name='start', maxlenght='50', placeholder='Adresse de départ')
-      .row
-        .col-md-offset-2.col-md-7
-          .form-group
-            label(for='end') Arrivé
-            input#end.form-control(type='text', name='end', maxlenght='50', placeholder="Adresse d'arrivé")
-      .row
-        .col-md-offset-2.col-md-7
-          .form-group
-            label(for='date') Date et heure
-            input#date-heure.form-control(type='datetime-local', name='date-heure', maxlenght='8', placeholder='Date et heure')
-      .row
-        .col-md-offset-2.col-md-7
-          .form-group
-            label(for='car') Voiture
-            input#car.form-control(type='text', name='brandCar', maxlenght='30', placeholder='Marque, modèle et couleur')
-      br
-      .row
-        .col-md-offset-2.col-md-3
-          .input-group
-            span.input-group-addon.glyphicon.glyphicon-earphone
-            input.form-control(type='tel', name='phoneNumber', maxlenght='10', placeholder='Phone', aria-describedby='basic-addon1')
-      br
-      .row
-        .col-md-offset-5.col-md-4
-          button.btn.btn-success.btn.btn-success(type='button') Submit
+        form.form-horizontal(action='ad/add', name='add', role='form', method='post', accept-charset='utf-8')
+          .row
+            .col-md-offset-2.col-md-3
+              .form-group
+                label(for='Nom') Objet
+                input#nom.form-control(type='text', name='object', maxlenght='100', placeholder='Objet', value="#{object || ''}")
+          .row
+            .col-md-offset-2.col-md-3
+              .form-group
+                label(for='end') Addresse d'arrivé
+                input#end.form-control(type='text', name='address', maxlenght='100', placeholder="Adresse d'arrivé", value="#{address || ''}")
+            .col-md-offset-1.col-md-3
+              .form-group
+                label(for='postal') Code Postal
+                input#postal.form-control(type='text', name='postalCode', maxlength='30', placeholder='Zip code', value="#{postalCode || ''}")
+          .row
+            .col-md-offset-2.col-md-3
+              .form-group
+                label(for='ville') Ville
+                input#ville.form-control(type='text', name='city', maxlength='30', placeholder='City', value="#{city || ''}")
+            .col-md-offset-1.col-md-3
+              .form-group
+                label(for='country') Pays
+                input#country.form-control(type='text', name='country', maxlength='30', placeholder='Country', value="#{country || ''}")
+          .row
+            .col-md-offset-2.col-md-3
+              .form-group
+                label(for='date') Date
+                input#date-heure.form-control(type='date', name='date', maxlenght='8', placeholder='Date', value="#{date || ''}")
+            .col-md-offset-1.col-md-3
+              .form-group
+                label(for='date') Heure
+                input#date-heure.form-control(type='time', name='time', maxlenght='8', placeholder='Date', value="#{time || ''}")
+          .row
+            .col-md-offset-2.col-md-3
+              .form-group
+                label(for='car') Voiture
+                input#car.form-control(type='text', name='brandCar', maxlenght='30', placeholder='Marque, modèle et couleur', value="#{brandCar || ''}")
+          .row
+            .col-md-offset-2.col-md-3
+              .form-group
+                label(for='car') Téléphone
+                input.form-control(type='tel', name='phoneNumber', maxlenght='10', placeholder='Téléphone', aria-describedby='basic-addon1', value="#{phoneNumber || ''}")
+          br
+          .row
+            .col-md-offset-5.col-md-3
+              button.btn.btn-success.btn.btn-success(type='Submit') Submit
     footer#footer.site-footer
       section.site-footer-bottom
         ul.display
