@@ -24,31 +24,11 @@ html(lang='en')
     NAVBAR
     ==================================================
   body
-    .navbar-wrapper
-      .container
-        nav.navbar.navbar-inverse.navbar-static-top
-          .container
-            .navbar-header
-              button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-                span.sr-only Toggle navigation
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-              a.navbar-brand(href='/index') CARea
-            #navbar.navbar-collapse.collapse
-              ul.nav.navbar-nav
-                li
-                  a(href='/about') A propos / About
-              ul.nav.navbar-nav.navbar-right
-                li
-                  a(href='/signup')
-                    span.glyphicon.glyphicon-user
-                    |  S'inscrire / Sign up
-                li.active
-                  a(href='/signin')
-                    span.glyphicon.glyphicon-log-in
-                    |  Se connecter / Sign in
-    .container-fluid
+    if session
+      include ./navbar_connect.jade
+    else
+      include ./navbar_unconnect.jade
+    .container-fluid.marg-nav
       .row
         .main
           .col-md-offset-4.col-md-4
@@ -70,12 +50,6 @@ html(lang='en')
               .form-group
                 .col-md-15
                   input.btn.btn-success.btn-fat(type='submit', value='Connect')
-    br
-    br
-    br
-    br
-    br
-    br
     .footer-p
       footer#footer.site-footer
         section.site-footer-bottom

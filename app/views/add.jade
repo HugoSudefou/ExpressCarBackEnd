@@ -23,30 +23,11 @@ html(lang='en')
     NAVBAR
     ==================================================
   body
-    .navbar-wrapper
-      .container
-        nav.navbar.navbar-inverse.navbar-static-top
-          .container
-            #navbar.navbar-collapse.collapse.navbar-header
-              button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-                span.sr-only Toggle navigation
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-              a.navbar-brand(href='../index.html') Carea
-              ul.nav.navbar-nav
-                li
-                  a(href='index_about.html') A propos / About
-              ul.nav.navbar-nav.navbar-right
-                li
-                  a(href='index_signup.html')
-                    span.glyphicon.glyphicon-user
-                    |  S'inscrire / Sign up
-                li.active
-                  a(href='index_signin.html')
-                    span.glyphicon.glyphicon-log-in
-                    |  Se connecter / Sign in
-    .container.marketing
+    if session
+      include ./navbar_connect.jade
+    else
+      include ./navbar_unconnect.jade
+    .container.marketing.marg-nav
       .row
         form.form-horizontal(action='ad/add', name='add', role='form', method='post', accept-charset='utf-8')
           .row
@@ -57,21 +38,8 @@ html(lang='en')
           .row
             .col-md-offset-2.col-md-3
               .form-group
-                label(for='end') Addresse d'arrivé
-                input#end.form-control(type='text', name='address', maxlenght='100', placeholder="Adresse d'arrivé", value="#{address || ''}")
-            .col-md-offset-1.col-md-3
-              .form-group
-                label(for='postal') Code Postal
-                input#postal.form-control(type='text', name='postalCode', maxlength='30', placeholder='Zip code', value="#{postalCode || ''}")
-          .row
-            .col-md-offset-2.col-md-3
-              .form-group
-                label(for='ville') Ville
-                input#ville.form-control(type='text', name='city', maxlength='30', placeholder='City', value="#{city || ''}")
-            .col-md-offset-1.col-md-3
-              .form-group
-                label(for='country') Pays
-                input#country.form-control(type='text', name='country', maxlength='30', placeholder='Country', value="#{country || ''}")
+                label(for='end') Ville d'arrivée
+                input#end.form-control(type='text', name='end', maxlenght='100', placeholder="Ville d'arrivée", value="#{address || ''}")
           .row
             .col-md-offset-2.col-md-3
               .form-group
@@ -80,21 +48,15 @@ html(lang='en')
             .col-md-offset-1.col-md-3
               .form-group
                 label(for='date') Heure
-                input#date-heure.form-control(type='time', name='time', maxlenght='8', placeholder='Date', value="#{time || ''}")
-          .row
-            .col-md-offset-2.col-md-3
+                input#date-heure.form-control(type='time', name='beginHour', maxlenght='8', placeholder='Date', value="#{time || ''}")
+            .col-md-offset-1.col-md-3
               .form-group
-                label(for='car') Voiture
-                input#car.form-control(type='text', name='brandCar', maxlenght='30', placeholder='Marque, modèle et couleur', value="#{brandCar || ''}")
-          .row
-            .col-md-offset-2.col-md-3
-              .form-group
-                label(for='car') Téléphone
-                input.form-control(type='tel', name='phoneNumber', maxlenght='10', placeholder='Téléphone', aria-describedby='basic-addon1', value="#{phoneNumber || ''}")
+                label(for='date') Heure
+                input#date-heure.form-control(type='time', name='lastHour', maxlenght='8', placeholder='Date', value="#{time || ''}")
           br
           .row
             .col-md-offset-5.col-md-3
-              button.btn.btn-success.btn.btn-success(type='Submit') Submit
+              input.btn.btn-success.btn.btn-success(type='submit') Submit
     footer#footer.site-footer
       section.site-footer-bottom
         ul.display
@@ -104,7 +66,7 @@ html(lang='en')
                 | ©2016 CARea
                 a  
               li.dispi
-                a(href='#') Legal Notice
+                a(href='/construc') Legal Notice
                 a  
               li.dispi
-                a(href='index_faq.html') FAQ
+                a(href='/faq') FAQ

@@ -1,26 +1,28 @@
-html
-  body
-    .navbar-wrapper
+.navbar-wrapper
+  .container
+    nav.navbar.navbar-inverse.navbar-static-top
       .container
-        nav.navbar.navbar-inverse.navbar-static-top
-          .container
-            .navbar-header
-              button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-                span.sr-only Toggle navigation
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-              a.navbar-brand(href='/index') Carea
-            #navbar.navbar-collapse.collapse
-              ul.nav.navbar-nav
-                li
-                  a(href='/about') A propos / About
-              ul.nav.navbar-nav.navbar-right
-                li
-                  a(href='/profil')
-                    span.glyphicon.glyphicon-tasks
-                    | Mon profil
-                li.active
-                  a(href='/index')
-                    span.glyphicon.glyphicon-off
-                    |  Se déconnecter
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/index') Carea
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/about') A propos / About
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/user/profil')
+                span.glyphicon.glyphicon-tasks
+                | Mon profil
+            li
+              a(href='/user/profil_edit')
+                span.glyphicon.glyphicon-cog
+                | Editer mon profil
+            li.active
+              a(href='/index')
+                span.glyphicon.glyphicon-off
+                |  Se déconnecter

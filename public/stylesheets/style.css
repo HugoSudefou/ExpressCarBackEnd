@@ -90,11 +90,22 @@ a {
     background-color:  #191919;
 }
 
+
+.container {
+    padding-right: 0;
+    padding-left: 0;
+    width:100%;
+}
+
 .glyphicon {
     
     top: 0px;
 }
 
+.marg-nav {
+
+    margin-top: 50px;
+}
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
@@ -189,7 +200,7 @@ a {
 
 .footer-p{
     position:absolute;
-    bottom: 250;
+    bottom: 0;
     width: 100%;
 
 }

@@ -24,31 +24,11 @@ html(lang='en')
     NAVBAR
     ==================================================
   body
-    .navbar-wrapper
-      .container
-        nav.navbar.navbar-inverse.navbar-static-top
-          .container
-            .navbar-header
-              button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-                span.sr-only Toggle navigation
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-              a.navbar-brand(href='../index.html') CARea
-            #navbar.navbar-collapse.collapse
-              ul.nav.navbar-nav
-                li
-                  a(href='index_about.html') A propos / About
-              ul.nav.navbar-nav.navbar-right
-                li
-                  a(href='index_signup.html')
-                    span.glyphicon.glyphicon-user
-                    |  S'inscrire / Sign up
-                li.active
-                  a(href='index_signin.html')
-                    span.glyphicon.glyphicon-log-in
-                    |  Se connecter / Sign in
-    .container-fluid
+    if session
+      include ./navbar_connect.jade
+    else
+      include ./navbar_unconnect.jade
+    .container-fluid.marg-nav
       .row
         .main
           .col-md-offset-4.col-md-4
