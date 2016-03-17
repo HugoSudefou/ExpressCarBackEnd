@@ -1,12 +1,15 @@
 var mongoose = require('mongoose');
-var ad = new mongoose.Schema({
+
+var schema = new mongoose.Schema({
 	object : String,
-	start : String,
-	end : String,
+	address : String,
+	city : String,
+	country : String,
+	zipCode : String,
 	date : { type : Date, default : Date.now },
-	hour : int,
+	hour : Number,
 	brandCar : String,
-	phoneNumber : String,	
+	phoneNumber : String,
 });
 
 exports.model = mongoose.model('Ad', schema, 'ad');
