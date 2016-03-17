@@ -23,38 +23,12 @@ html(lang='en')
   // NAVBAR ==================================================
   html
   body
-    .navbar-wrapper
-      .container
-        nav.navbar.navbar-inverse.navbar-static-top
-          .container
-            .navbar-header
-              button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-                span.sr-only Toggle navigation
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-              a.navbar-brand(href='/index') Carea
-            #navbar.navbar-collapse.collapse
-              ul.nav.navbar-nav
-                li
-                  a(href='/about') A propos / About
-              ul.nav.navbar-nav.navbar-right
-                li
-                  a(href='/profil')
-                    span.glyphicon.glyphicon-tasks
-                    | Mon profil
-                li.active
-                  a(href='/index')
-                    span.glyphicon.glyphicon-off
-                    |  Se déconnecter
-
-    br
-    br
-    br
-    br
-    br
-    // Page de profil
-    .container-fluid
+    if session
+      include ./navbar_connect.jade
+    else
+      include ./navbar_unconnect.jade
+    // Corps de présentation
+    .container-fluid.marg-nav
       .row
         .col-sm-offset-3.col-md-6
             .row
@@ -92,18 +66,18 @@ html(lang='en')
                   div.form-control(type='text', name='email', disabled='disabled')=user.email
             .row
               .col-md-12
-                .col-md-offset-2.col-md-6              
+                .col-md-offset-2.col-md-6
     .footer-p
       footer#footer.site-footer
         section.site-footer-bottom
           ul.display
-            li.dispi
-              ul.dispi
+            li
+              ul
                 li.dispi
-                  | ©2016 CORP.
+                  | ©2016 CARea
                   a  
                 li.dispi
-                  a(href='#') Legal Notice
+                  a(href='/construct') Legal Notice
                   a  
                 li.dispi
-                  a(href='#') Terms of use
+                  a(href='/faq') FAQs

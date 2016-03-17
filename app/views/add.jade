@@ -49,24 +49,20 @@ html(lang='en')
               .form-group
                 label(for='date') Heure
                 input#date-heure.form-control(type='time', name='beginHour', maxlenght='8', placeholder='Date', value="#{time || ''}")
-            .col-md-offset-1.col-md-3
-              .form-group
-                label(for='date') Heure
-                input#date-heure.form-control(type='time', name='lastHour', maxlenght='8', placeholder='Date', value="#{time || ''}")
-          br
           .row
             .col-md-offset-5.col-md-3
-              input.btn.btn-success.btn.btn-success(type='submit') Submit
-    footer#footer.site-footer
-      section.site-footer-bottom
-        ul.display
-          li.dispi
-            ul.dispi
-              li.dispi
-                | ©2016 CARea
-                a  
-              li.dispi
-                a(href='/construc') Legal Notice
-                a  
-              li.dispi
-                a(href='/faq') FAQ
+              input.btn.btn-success.btn.btn-success(type='submit', value=Submit)
+    .footer-p
+      footer#footer.site-footer
+        section.site-footer-bottom
+          ul.display
+            li
+              ul
+                li.dispi
+                  | ©2016 CARea
+                  a  
+                li.dispi
+                  a(href='/construct') Legal Notice
+                  a  
+                li.dispi
+                  a(href='/faq') FAQ

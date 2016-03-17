@@ -4,34 +4,30 @@ var Users = require('../controllers/Users');
 var Files = require('../controllers/Files');
 
 
-function isNotClient(req, res, next){
-  if(req.session.isAuthentificated == true){
-    return res.redirect('/index?error=alreadyConnected')
-  }else{
-    next();
-  }
+function isNotClient(req, res, next) {
+    if (req.session.isAuthentificated == true) {
+        return res.redirect('/index?error=alreadyConnected')
+} else {
+        next();
+    }
 }
 /* GET home page. */
-router.get('/annonces', function(req,res){
-  res.render('annonces');
+
+router.get('/ad', function (req, res) {
+    res.render('ad');
 });
-router.get('/add', function(req,res){
-  res.render('add');
+router.get('/add', function (req, res) {
+    res.render('add');
 });
 
 router.get('/', Files.index);
 router.get('/index', Files.index);
 
+router.get('/about', Files.about);
 
-router.get('/construct', Files.construct);
+router.get('/signup', isNotClient, Files.signUp);
+router.post('/signup', isNotClient, Users.create);
 
-router.get('/about',Files.about);
-
-router.get('/signUp', Files.signUp);
-router.post('/signup',Users.create);
-
-
-
-router.get('/signin',isNotClient, Files.signIn);
+router.get('/signin', isNotClient, Files.signIn);
 router.post('/signin', isNotClient, Users.signIn);
 module.exports = router;

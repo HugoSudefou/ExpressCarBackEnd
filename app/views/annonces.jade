@@ -19,7 +19,7 @@ html(lang='en')
     // Latest compiled and minified JavaScript
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
     // Custom styles for this template
-    link(href='../stylesheets/Style.css', rel='stylesheet')
+    link(href='Css/carousel.css', rel='stylesheet')
   //
     NAVBAR
     ==================================================
@@ -31,34 +31,40 @@ html(lang='en')
     .container-fluid.marg-nav
       .row
         .col-sm-12
-          h1(style='text-align:center') CAREA
-    br
+          h1(style='text-align:center') CARea
     .container-fluid
       .row
         .col-sm-12
-          h3(style='text-align:center') En quelques mots
-    br
+          h3(style='text-align:center') Annonces proche de vous
     // Corps de présentation
     br
+    br
     .container-fluid
       .row
         .col-sm-12
-          p(style='text-align:center')
-      | Nous avons créé cette plateforme car notre constat était le suivant :
-      br
-      | Le covoiturage reste très impersonnel, et malgré la volonté de nos concurrents
-      br
-      | de mettre en avant le côté friendly du covoiturage,il est souvent difficile de
-      br
-      | le retrouver pleinement. Nous avons donc décidé de vous permettre de créer un véritable
-      br
-      | réseau intelligent autour du covoiturage, vous permettant de visualiser vos trajets ponctuels,
-      br
-      | quotidiens, hebdomadaires ou mensuels, le tout avec des personnes que vous connaissez, ou qui
-      br
-      | se trouvent à proximité de votre lieu de résidence. En bref, soit vous voyagez avec des personnes
-      br
-      | de votre entourage,soit avec des personnes de votre quartier.
+          .list-group(style='text-align:center')
+            a.list-group-item(href='#')
+              tr
+                td 03/05/16 21:45:34
+                br
+                td SuperVoisin
+                br
+                td Aller retour fnac Bercy
+                br
+                td 5 rue de la grande armé
+                br
+                td Supervoisin@carea.com
+                br
+                td 0600000000
+            a.list-group-item(href='#') item 2
+            a.list-group-item(href='#') item 3
+            a.list-group-item(href='#') item 4
+            a.list-group-item(href='#') item 5
+            a.list-group-item(href='#') item 6
+            a.list-group-item(href='#') item 7
+            a.list-group-item(href='#') item 8
+            a.list-group-item(href='#') item 9
+            a.list-group-item(href='#') item 10
     .footer-p
       footer#footer.site-footer
         section.site-footer-bottom

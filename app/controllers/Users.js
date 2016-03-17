@@ -94,12 +94,12 @@ var Users = {
                         res.redirect('/users/profil')
                     } else {
                         error.push("Le mot de passe est incorrect");
-                        res.render("signin", {title: "Carea", error: error});
+                        res.render("signin", {title: "Carea", error: error, session: req.session.isAuthentificated});
                     }
                 });
             } else {
                 error.push("L'email  est incorrect");
-                res.render("signin", {title: "Carea", error: error});
+                res.render("signin", {title: "Carea", error: error, session: req.session.isAuthentificated});
             }
             console.log(error);
         });
@@ -114,7 +114,7 @@ var Users = {
     viewProfil: function (req, res) {
         User.findOne({email: req.session.email}, function (err, user) {
             if (user) {
-                res.render('profil', {user: user});
+                res.render('profil', {user: user, session: req.session.isAuthentificated});
             }
         });
     },
@@ -153,10 +153,10 @@ var Users = {
                     .then(updateUser => res.redirect("/profil"))
                     .catch(error => {
                         console.error(error);
-                        res.render("profil", {title: "CaRea", form: user, error: error})
+                        res.render("profil", {title: "CaRea", form: user, error: error, session: req.session.isAuthentificated})
                     });
             }else{
-                res.render("profil", {title: "CaRea", form: user, error: error})
+                res.render("profil", {title: "CaRea", form: user, error: error, session: req.session.isAuthentificated})
             }
         });
     }
