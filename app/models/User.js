@@ -1,20 +1,20 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
-var SALT = 42; 
+var SALT = 42;
 
 var schema = new mongoose.Schema({
-  username : { type : String, match: /^[a-zA-Z0-9-_]+$/ },
-  name : {type: String, required: true},
-  firstName : String,
-  email: { type: String, required: true },  
-  password: { type: String, required: true }, 
-  phoneNumber : String,
-  address : { type: String, required: true },
-  postalCode : { type: String, required: true },
-  city : { type: String, required: true},
-  country: {type: String, required: true},
-  longitude : Number,
-  latitude : Number
+    username: {type: String},
+    name: {type: String, required: true},
+    firstName: String,
+    email: {type: String, required: true},
+    password: {type: String, required: true},
+    phoneNumber: String,
+    address: {type: String, required: true},
+    postalCode: {type: String, required: true},
+    city: {type: String, required: true},
+    country: {type: String, required: true},
+    longitude: Number,
+    latitude: Number
 });
 
 
@@ -38,6 +38,14 @@ schema.methods.comparePassword = function (candidatePassword, cb) {
         if (err) return cb(err);
         cb(null, isMatch);
     });
+};
+
+schema.methods.profile = function () {
+    return {
+        username: this.username,
+        email: this.email,
+        phoneNumber: this.phoneNumber
+    }
 };
 
 exports.model = mongoose.model('User', schema, 'user');

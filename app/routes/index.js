@@ -25,7 +25,7 @@ router.get('/index', Files.index);
 
 router.get('/about', Files.about);
 
-router.get('/signUp', isNotClient, Files.signUp);
+router.get('/signup', isNotClient, Files.signUp);
 router.post('/signup', isNotClient, Users.create);
 
 router.get('/signin', isNotClient, Files.signIn);

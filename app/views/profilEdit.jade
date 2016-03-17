@@ -55,7 +55,7 @@ html(lang='en')
     .container-fluid
       .row
         .col-sm-offset-3.col-md-6
-          form(action='/users/updateProfil', method='post', style='text-align:center')
+          form(action='updateProfil', method='post', style='text-align:center')
             input(type='hidden', name='_csrf', value='csrf')
             .row
               .col-md-offset-2.col-md-6
@@ -63,51 +63,66 @@ html(lang='en')
                 br
                 br
                 .form-group
-                  label(for='firstname') Nom
-                  div.form-control= 'test'
+                  label(for='firstName') Nom
+                  input.form-control(type='text', name='name', disabled='disabled' value=user.name )
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='lastName') Prénom
-                  div.form-control(type='text', name='name', disabled='disabled')= user.name
+                  input.form-control(type='text', name='firstName', disabled='disabled' value=user.firstName)
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='timeA') Pseudo
-                  input.form-control(type='text', name='username', value = user.username)
+                  input.form-control(type='text', name='username',value=user.username)
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='phone') Mobile
-                  input.form-control(type='tel', name='phoneNumber', value = user.phoneNumber)
-            .row
-              .col-md-offset-2.col-md-6
-                .form-group
-                  label(for='timeA') Mot de Passe
-                  input.form-control(type='pasword', name='password')
-            .row
-              .col-md-offset-2.col-md-6
-                .form-group
-                  label(for='phone') Verification Mot de Passe
-                  input.form-control(type='password', name='passwordV')
+                  input.form-control(type='tel', name='phoneNumber' value=user.phoneNumber)
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='voiture') Adresse de domicile
-                  input.form-control(type='text', name='adress', value = user.address)
+                  input.form-control(type='text', name='address' value=user.address)
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='postal') Code postal
+                  input.form-control(type='text', name='postalCode' value=user.postalCode)
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='city') Ville
+                  input.form-control(type='text', name='city' value=user.city)
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='country') Pays
+                  input.form-control(type='text', name='country' value=user.country)
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='mail') Adresse Email
-                  input.form-control(type='text', name='email', value = user.email)
-
+                  input.form-control(type='text', name='email', disabled='disabled' value=user.email)
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='password') Password
+                  input.form-control(type='password', name='password')
+            .row
+              .col-md-offset-2.col-md-6
+                .form-group
+                  label(for='passwordV') Password verification
+                  input.form-control(type='password', name='passwordV')      
+            
             br
             br
             br
             .row
               .col-md-12
                 .col-md-offset-2.col-md-6
-                  input.btn.btn-secondary.btn-fat(type='submit', value='Sauvegarder')
+                  input.btn.btn-success.btn-fat(type='submit', value='update')
               br
               br
     br
@@ -119,10 +134,10 @@ html(lang='en')
           li.dispi
             ul.dispi
               li.dispi
-                | ©2016 CORP.
-                a
+                | ©2016 CARea.
+                a  
               li.dispi
                 a(href='#') Legal Notice
-                a
+                a  
               li.dispi
                 a(href='#') Terms of use

@@ -8,19 +8,18 @@ html(lang='en')
     meta(name='description', content='')
     meta(name='author', content='')
     link(rel='icon', href='../../favicon.ico')
-    title Carea
+    title CARea
+    // Bootstrap core CSS
+    link(href='../Stylesheets/bootstrap/bootstrap.css', rel='stylesheet')
     script(src='https://code.jquery.com/jquery-1.11.3.min.js')
-    script(src='app.js')
+    script(src='Js/bootstrap.js')
     // jQuery (necessary for Bootstrap's JavaScript plugins)
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
     // Include all compiled plugins (below), or include individual files as needed
     // Latest compiled and minified JavaScript
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
-    // Custom styles for this template=
-    // Bootstrap core CSS
-    link(href='/stylesheets/bootstrap/bootstrap.min.css', rel='stylesheet')
-    link(rel='stylesheet', type='text/css', href='../stylesheets/signin.css')
-    link(href='/stylesheets/carousel.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='../stylesheets/Style.css', rel='stylesheet')
   //
     NAVBAR
     ==================================================
@@ -35,55 +34,59 @@ html(lang='en')
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-              a.navbar-brand(href='/index') CARea
+              a.navbar-brand(href='../index.html') CARea
             #navbar.navbar-collapse.collapse
               ul.nav.navbar-nav
                 li
-                  a(href='/about') A propos / About
+                  a(href='index_about.html') A propos / About
               ul.nav.navbar-nav.navbar-right
                 li
-                  a(href='/signup')
+                  a(href='index_signup.html')
                     span.glyphicon.glyphicon-user
                     |  S'inscrire / Sign up
-                li
-                  a(href='/signin')
+                li.active
+                  a(href='index_signin.html')
                     span.glyphicon.glyphicon-log-in
                     |  Se connecter / Sign in
-    .container.marketing
+    .container-fluid
       .row
-        .col-xs-12
-          .main
-            .row
-              .col-md-offset-2.col-md-7
-                h1 Sign in
-                form.form-horizontal(action='/signin', name='login', role='form', method='post', accept-charset='utf-8')
-                  .form-group
-                    .col-md-8
-                      input#UserUsername.form-control(name='email', placeholder='Login', type='text')
-                  |  
-                  .form-group
-                    .col-md-8
-                      input#UserPassword.form-control(name='password', placeholder='Password', type='password')
-                  |  
-                  .form-group
-                    .col-md-offset-0.col-md-8
-                      input.btn.btn-success.btn.btn-success(type='submit', value='Connect')
-                  br
-                  br
-                p.credits(style='text-align:center') Develloped by Ynov students.
-    // FOOTER
-    footer#footer.site-footer
-      section.site-footer-bottom
-        ul.display
-          li.dispi
-            ul.dispi
-              li.dispi
-                | ©2016 CARea
-                a  
-              li.dispi
-                a(href='#') Legal Notice
-                a  
-              li.dispi
-                a(href='index_faq.html') FAQ
-  |     Status API Training Shop Blog About Pricing
-  |     © 2016 GitHub, Inc. Terms Privacy Security Con
+        .main
+          .col-md-offset-4.col-md-4
+            div(style='text-align:center')
+              p
+              h1 Sign in
+              p
+            br
+            br
+            form.form-horizontal(action='/signin', name='login', role='form', method='post', accept-charset='utf-8')
+              //input(type='hidden', name='_csrf', value= 'csrf')
+              .form-group
+                .col-md-15
+                  input#UserUsername.form-control(name='email', placeholder='Login', type='text', style='text-align:center')
+              .form-group
+                .col-md-15
+                  input#UserPassword.form-control(name='password', placeholder='Password', type='password', style='text-align:center')
+              br
+              .form-group
+                .col-md-30
+                  input.btn.btn-success.btn-fat(type='submit', value='Connect')
+    br
+    br
+    br
+    br
+    br
+    br
+    .footer-p
+      footer#footer.site-footer
+        section.site-footer-bottom
+          ul.display
+            li
+              ul
+                li.dispi
+                  | ©2016 CARea
+                  a  
+                li.dispi
+                  a(href='#') Legal Notice
+                  a  
+                li.dispi
+                  a(href='index_faq.html') FAQ

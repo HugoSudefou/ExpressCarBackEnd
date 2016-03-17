@@ -33,7 +33,7 @@ function completeAddress(user) {
 var Users = {
     create: function (req, res) {
         const user = req.body;
-
+        console.log(user);
         User.findOne({'email': user.email}, function (err, userInBase) {
             if (userInBase) {
                 error.push("l'adresse email est déja utilisé");
@@ -44,7 +44,7 @@ var Users = {
             }
 
             if (passwordComparaison(user)) {
-                error.push("les mots de passe ne corresepondent pas");
+                error.push("les mots de passe ne correspondent pas");
             }
 
             if (verifyIfPhoneAndFirstNameAreNotUndefined(user)) {
@@ -53,7 +53,7 @@ var Users = {
             
             User.findOne({username: user.username}, function (err, userInBase) {
                 if (userInBase) {
-                    error.push("this username already exist");
+                    error.push("Ce pseudo existe deja");
                 }
             });
             console.log(error);
@@ -67,8 +67,9 @@ var Users = {
                     })
                     .then(savedUser => {
                         req.session.isAuthentificated = true;
+                        req.session.email = user.email;
                         req.session.clientID = savedUser._id;
-                        res.redirect('/index');
+                        res.redirect('/users/profil');
                     })
                     .catch(error => {
                         console.error(error);
@@ -88,8 +89,8 @@ var Users = {
                 user.comparePassword(req.body.password, function (err, isMatch) {
                     if (isMatch) {
                         req.session.isAuthentificated = true;
-                        // permet de pouvoir via un findOne de recuperer les données de l'utilisateur dans la base
                         req.session.email = user.email;
+                        //Object.assign(req.session, user);
                         res.redirect('/users/profil')
                     } else {
                         error.push("Le mot de passe est incorrect");
@@ -152,17 +153,22 @@ var Users = {
             Geoloc.getLocalisationData(address)
                 .then(locData => {
                     Object.assign(user, locData);
-                    console.log('Ok');
+                    console.log(userToUpdate);
                     Object.assign(userToUpdate, user);
+                    console.log(userToUpdate);
                     return userToUpdate.save();
                 })
-                .then(updateUser => res.redirect("/profil"))
+                .then(function(){
+                    req.session.email = userToUpdate.email;
+                    res.redirect("/users/profil");
+                })
                 .catch(error => {
                     console.error(error);
-                    res.render("profil", {title: "CaRea", form: user, error: error})
+                    res.render("profilEdit", {title: "CaRea", user: user, error: error})
                 });
         } else {
-            res.render("profil", {title: "CaRea", form: user, error: error})
+            console.log(error);
+            res.render("profilEdit", {title: "CaRea", user: user, error: error})
         }
     }
 

@@ -19,7 +19,7 @@ html(lang='en')
     // Latest compiled and minified JavaScript
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
     // Custom styles for this template
-    link(rel='stylesheet', type='text/css', href='../Stylesheets/Style.css')
+    link(rel='stylesheet', type='text/css', href='../stylesheets/Style.css')
   //
     NAVBAR
     ==================================================
@@ -63,7 +63,7 @@ html(lang='en')
       .container-fluid
         .row
           .col-sm-offset-4.col-md-4
-            form(action='recherche', method='get', style='text-align:center')
+            form(action='search',, name= "search," method='post',role='form' style='text-align:center')
               input(type='hidden', name='_csrf', value='csrf')
               .row
                 .col-md-offset-2.col-md-3
@@ -74,28 +74,28 @@ html(lang='en')
                 .col-md-offset-2.col-md-8
                   .form-group
                     label(for='voiture') Voiture
-                    select#voiture(name='voiture')
-                      option(value='rechV') Je recherche une voiture
-                      option(value='propV') Je propose une voiture
+                    select#voiture(name='object')
+                      option(value='search') Je recherche une voiture
+                      option(value='offer') Je propose une voiture
               .row
                 .col-md-offset-2.col-md-3
                   .form-group
                     label(for='timeD') Heure de départ
-                    input.form-control(type='time', name='timeD')
+                    input.form-control(type='time', name='beginHour')
                 .col-md-offset-2.col-md-3
                   .form-group
                     label(for='timeA') Heure d'arrivée
-                    input.form-control(type='time', name='timeA')
+                    input.form-control(type='time', name='lastHour')
               .row
                 .col-md-offset-2.col-md-8
                   .form-group
                     label(for='adresseD') Adresse de départ
-                    input.form-control(type='text', name='adresseD', disabled='disabled')
+                    input.form-control(type='text', name='start', disabled='disabled')
               .row
                 .col-md-offset-2.col-md-8
                   .form-group
-                    label(for='adresseA') Ville d'arrvée
-                    input.form-control(type='text', name='postalCode', placeholder='Code postal')
+                    label(for='adresseA') Ville d'arrivée
+                    input.form-control(type='text', name='end', placeholder='Code postal')
               br
               br
               br

@@ -1,82 +1,13 @@
 require('../models/User');
 require('../models/Ad');
 require('../models/User');
-
+require('../models/Ad');
 var mongoose = require('mongoose'),
+    User = mongoose.model('User'),
     Ad = mongoose.model('Ad');
 var validator = require('validator');
-
-console.log('GO');
 const Geoloc = require('../util/Geoloc');
 
-function isEmpty(value){
-    return value == undefined || value == "";
-}
-function isEmptyChamp(ad) {
-    return isEmpty(ad.object) || isEmpty(ad.address) || isEmpty(ad.date) ||
-        isEmpty(ad.time) || isEmpty(ad.brandCar) || isEmpty(ad.phoneNumber) || isEmpty(ad.postalCode)
-        || isEmpty(ad.city) || isEmpty(ad.country)
-}
-
-function verifyIfPhoneAndFirstNameAreNotUndefined(user){
-    if(user.phoneNumber == undefined){
-        user.phoneNumber = "";
-    }
-}
-
-//Creer un utilisateur
-function passwordComparaison(user) {
-    return user.password != user.passwordV;
-}
-
-function completeAddress(ad) {
-    return ad.address + ", " + ad.postalCode + ", " + ad.city + ", " + ad.country;
-}
-
-
-var error = [];
-var errorBool = false;
-var Ad = {
-    create: function (req, res) {
-        const ad = req.body;
-        console.log('Create : Oui');
-        if (isEmptyChamp(ad)) {
-            console.log('Manque un truc(s)')
-            error.push("un champ est incorrect ou manquant");
-            var errorBool = true;
-        }
-        if (!errorBool) {
-            console.log('yes');
-            var address = completeAddress(ad);
-
-                Geoloc.getLocalisationData(address)
-                    .then(locData => {
-                        Object.assign(ad, locData);
-                        return Ad(ad).save();
-                    })
-                    .catch(error => {
-                        console.error(error);
-                        res.render("signup", {title: "CaRea", form: req.body, error: error})
-                    });
-            res.render("add", {title: "CaRea", form: req.body, error: error})
-        }
-        else
-        {
-            console.log('non');
-            res.render("add", {error: error, object: ad.object, address: ad.address, postalCode: ad.postalCode, date: ad.date, time: ad.time, brandCar: ad.brandCar, phoneNumber: ad.phoneNumber, city:ad.city, country: ad.country})
-        }
-    }
-};
-
-module.exports = Ad;
-var mongoose = require('mongoose'),
-    User = mongoose.model('User');
-var Ad = mongoose.model('Ad');
-
-/**
- * @return {number}
- * @return {number}
- */
 function CalulateDistanceBetween2Point(user, userWithCar) {
     var rlat1 = Math.PI * user.latitude / 180;
     var rlat2 = Math.PI * user.latitude / 180;
@@ -87,24 +18,101 @@ function CalulateDistanceBetween2Point(user, userWithCar) {
     return dist;
 }
 
+function isEmpty(value) {
+    return value == undefined || value == "";
+}
+function isEmptyChamp(ad) {
+    return isEmpty(ad.object) || isEmpty(ad.date) ||
+        isEmpty(ad.beginHour) || isEmpty(ad.lastHour) || isEmpty(ad.end)
+}
 
+var error = [];
+
+function adCorrespondToHours(userSearch, ad) {
+    return userSearch.beginHour <= ad.beginHour <= ad.lastHour
+        && ad.lastHour <= userSearch.lastHour
+}
 var Ads = {
+    create: function (req, res) {
+        var ad = req.body;
+        User.findOne({email: req.session.email}).exec()
+            .then(user => {
+                if (isEmptyChamp(ad)) {
+                    error.push("un champ est incorrect ou manquant");
+                } else if (error.length <= 0) {
+                    Object.assign(ad, user.profile());
+                    return new Ad(ad).save();
+                }
+                else {
+                    res.render("add", {error: error, ad: ad})
+                }
+
+            })
+            .then(function () {
+                res.redirect('/index')
+            })
+            .catch(error => {
+                console.error(error);
+                console.log("vhgvhgv");
+                res.render('add', {error: error})
+            });
+    },
 
 
     search: function (req, res) {
-        var ad;
+        console.log('OY');
+        var ads;
         var userSearch = req.body;
-        var objectToFind = !userSearch.object;
-        Ad.find($and[{date: userSearch.date}, {object: objectToFind}, {start: userSearch.start}, {end: userSearch.end}])
-            .exec()
-            .then(result=> {
-                for(var i=0; i< result.length; i++){
-                    if (userSearch.beginHour <= result[i] <= userSearch.lastHour){
-                        ad += result[i];
-                    }
-                }
-            })
+        console.log(userSearch);
+        if (userSearch.object == "search") {
+            var objectToFind = "offer";
+        } else {
+            objectToFind = "search";
+        }
+        var futurUser = User.findOne({email: req.session.email}).exec();
+        var futurFirstResult = Ad.find({
+            date: userSearch.date,
+            object: objectToFind,
+            //end: {$in: [userSearch.end, ""]}
+        }).exec();
+
+        Promise.all([futurUser, futurFirstResult]).then(result => {
+            console.log('je commence');
+            var userToMakeSearch = result[0];
+            var firstResult = result[1];
+            console.log(firstResult);
+            if (firstResult.length != 0) {
+                firstResult.forEach(function (ad) {
+                    //if (adCorrespondToHours(userToMakeSearch, ad)) {
+                    console.log('Je suis passé');
+                    User.findOne({username: ad.username}).exec()
+                        .then(userOfAd => {
+                            console.log("J'ai fini");
+                            if (CalulateDistanceBetween2Point(userToMakeSearch, userOfAd) <= 1000) {
+                                ads += ad;
+                                console.log("J'ai trouvé: ", ads);
+                            }
+                        }).catch(error => {
+                            console.error(error);
+                            res.render('rechA')
+                        });
+                    // }
+
+                }).then(res.render('index'))
+                    .catch(error => {
+                        console.error(error);
+                        res.render('rechA')
+                    });
+            } else {
+                console.log('notFound');
+                res.render('rechA');
+            }
+
+
+        })
+
     }
 };
+
 
 module.exports = Ads;
