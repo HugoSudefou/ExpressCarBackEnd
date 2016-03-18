@@ -1,7 +1,5 @@
 require('../models/User');
 require('../models/Ad');
-require('../models/User');
-require('../models/Ad');
 var mongoose = require('mongoose'),
     User = mongoose.model('User'),
     Ad = mongoose.model('Ad');
