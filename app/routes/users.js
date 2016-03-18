@@ -25,7 +25,7 @@ router.get('/add',isClient,Files.add);
 router.post('/add',isClient, Ad.create);
 /* GET users listing. */
 router.get('/profil', isClient, Users.viewProfil);
-router.get('/updateProfil', Files.updateProfil);
+router.get('/updateProfil', isClient,Files.updateProfil);
 router.post('/updateProfil', isClient, Users.update);
 router.get('/signout', isClient, Users.signOut);
 
