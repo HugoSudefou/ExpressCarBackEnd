@@ -144,7 +144,7 @@ var Users = {
         });
 
         User.findOne({username: user.username}, function (err, userInBase) {
-            if (userInBase && user.username != userToUpdate) {
+            if (userInBase && user.username != userToUpdate.username) {
                 error.push("UserName is already used")
             }
         });
