@@ -26,4 +26,8 @@ router.get('/signin', isNotClient, Files.signIn);
 router.post('/signin', isNotClient, Users.signIn);
 
 router.get('/signout', Users.signOut);
+
+router.get('/construct', Files.construc);
+router.get('/faq', Files.faq);
+router.get('/teaser', Files.teaser);
 module.exports = router;

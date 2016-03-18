@@ -29,14 +29,14 @@ html(lang='en')
     // Page de profil
     .container-fluid.marg-nav
       .row
+        .col-md-offset-3.col-md-7
+          h2(style='text-align: center;') Edition de profil
+      .row
         .col-sm-offset-3.col-md-8
           form(action='updateProfil', method='post', style='text-align:center')
             input(type='hidden', name='_csrf', value='csrf')
             .row
               .col-md-offset-2.col-md-6
-                h1(style='color:#101010') Edition de profil
-                br
-                br
                 .form-group
                   label(for='firstName') Nom
                   input.form-control(type='text', name='name', disabled='disabled' value=user.name )

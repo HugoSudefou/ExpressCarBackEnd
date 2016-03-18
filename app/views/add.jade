@@ -29,12 +29,11 @@ html(lang='en')
       include ./navbar_unconnect.jade
     .container-fluid.marg-nav
       .row
-        .col-sm-11
-          .Recherche(class="d'annonce")
-            h2(style='text-align:center') Créer une annonce
-    .container.marketing
+        .col-sm-12
+          h2(style='text-align:center') Créer une annonce
+    .container-fluid
       .row
-        form.form-horizontal(action='add', name='add', role='form', method='post', accept-charset='utf-8', class='add')
+        form(action='add', name='add', role='form', method='post', accept-charset='utf-8')
           .row
             .col-sm-12.col-md-offset-4.col-md-3
               .form-group
@@ -57,7 +56,8 @@ html(lang='en')
               .form-group
                 label(for='date') Heure de depart
                 input#date-heure.form-control(type='time', name='beginHour', maxlenght='8', placeholder='Date')
-            .col-md-offset-1.col-md-3
+          .row
+            .col-sm-12.col-md-offset-4.col-md-3
               .form-group
                 label(for='date') Heure d'arrivée
                 input#date-heure.form-control(type='time', name='lastHour', maxlenght='8', placeholder='Date')

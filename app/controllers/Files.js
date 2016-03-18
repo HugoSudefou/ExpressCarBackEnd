@@ -37,6 +37,18 @@ var Files = {
 
     search: function(req, res){
       res.render('rechA', {session: req.session.isAuthentificated})
+    },
+
+    construc: function(req, res){
+      res.render('construc', {session: req.session.isAuthentificated})
+    },
+
+    faq: function(req, res){
+      res.render('faq', {session: req.session.isAuthentificated})
+    },
+
+    teaser: function(req, res){
+      res.render('presentation', {session: req.session.isAuthentificated})
     }
 };
 

@@ -12,14 +12,14 @@ html(lang='en')
     // Bootstrap core CSS
     link(href='../stylesheets/bootstrap/bootstrap.css', rel='stylesheet')
     script(src='https://code.jquery.com/jquery-1.11.3.min.js')
-    script(src='Js/bootstrap.js')
+    script(src='Javascript/bootstrap/bootstrap.js')
     // jQuery (necessary for Bootstrap's JavaScript plugins)
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
     // Include all compiled plugins (below), or include individual files as needed
     // Latest compiled and minified JavaScript
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+    script(src='Javascript/bootstrap/bootstrap.min.js')
     // Custom styles for this template
-    link(href='../stylesheets/Style.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='../stylesheets/Style.css')
   //
     NAVBAR
     ==================================================
@@ -30,33 +30,17 @@ html(lang='en')
       include ./navbar_unconnect.jade
     .container-fluid.marg-nav
       .row
-        .main
-          .col-md-offset-4.col-md-4
-            div(style='text-align:center')
-              p
-              h1 Sign in
-            form.form-horizontal(action='/users/login', name='login', role='form', method='post', accept-charset='utf-8', style='text-align:center')
-              input(type='hidden', name='_csrf', value='csrf')
-              .form-group
-                .col-md-15
-                  input#UserUsername.form-control(name='username', placeholder='Login', type='text', style='text-align:center')
-              .form-group
-                .col-md-15
-                  input#UserPassword.form-control(name='password', placeholder='Password', type='password', style='text-align:center')
-              .form-group
-                .col-md-15
-                  input.btn.btn-success.btn-fat(type='submit', value='Connect')
+        .col-sm-12
+          img#gif.img-responsive.marg-construct(src='../images/underC.gif', alt='construct')
     .footer-p
       footer#footer.site-footer
         section.site-footer-bottom
           ul.display
-            li
-              ul
+            li.dispi
+              ul.dispi
                 li.dispi
                   | ©2016 CARea
-                  a  
                 li.dispi
-                  a(href='/construct') Legal Notice
-                  a
+                  a(href='/construc')  | Legal Notice
                 li.dispi
-                  a(href='/faq') FAQ
+                  a(href='/faq')  | FAQ
