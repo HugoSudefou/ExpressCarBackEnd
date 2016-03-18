@@ -34,12 +34,13 @@ var Files = {
     updateProfil: function(req, res){
         User.findOne({email: req.session.email}).exec()
             .then(user =>{
-                res.render('profilEdit',{user: user, session: req.session.isAuthentificated})
+                res.render('profilEdit',{user: user, session: req.session.isAuthentificated});
+                //res.render('profilEdit',{user: user});
             }).catch(error => console.log(error))
     },
 
     search: function(req, res){
-      res.render('rechA', {session: req.session.isAuthentificated)
+      res.render('rechA', {session: req.session.isAuthentificated})
     }
 };
 

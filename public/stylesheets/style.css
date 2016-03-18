@@ -66,6 +66,16 @@ a {
     padding-right: 0px;
     padding-left: 0px;
 }
+.col-sm-offset-3.col-md-8 {
+
+    position: relative;
+    top:50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+
+}
 /* CUSTOMIZE THE NAVBAR
 
 -------------------------------------------------- */
@@ -155,7 +165,7 @@ a {
     border-width: 2px;
     border-radius: 30px;
 }
-.btn-secondary   {
+.btn-secondary{
     color: #FFF;
     border: #1ABC9C);
     background-color: #1ABC9C;

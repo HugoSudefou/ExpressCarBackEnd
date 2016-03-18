@@ -30,7 +30,7 @@ html(lang='en')
     .container-fluid.marg-nav
       .row
         .col-sm-offset-3.col-md-8
-          form(action='profilEdit', method='post', style='text-align:center')
+          form(action='updateProfil', method='post', style='text-align:center')
             input(type='hidden', name='_csrf', value='csrf')
             .row
               .col-md-offset-2.col-md-6
@@ -49,37 +49,37 @@ html(lang='en')
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='timeA') Pseudo
-                  input.form-control(type='text', name='username',value=user.username)
+                  input.form-control(type='text', name='username', value=user.username)
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='phone') Mobile
-                  input.form-control(type='tel', name='phoneNumber' value=user.phoneNumber)
+                  input.form-control(type='tel', name='phoneNumber', value=user.phoneNumber)
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='voiture') Adresse de domicile
-                  input.form-control(type='text', name='address' value=user.address)
+                  input.form-control(type='text', name='address', value=user.address)
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='postal') Code postal
-                  input.form-control(type='text', name='postalCode' value=user.postalCode)
+                  input.form-control(type='text', name='postalCode', value=user.postalCode)
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='city') Ville
-                  input.form-control(type='text', name='city' value=user.city)
+                  input.form-control(type='text', name='city', value=user.city)
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='country') Pays
-                  input.form-control(type='text', name='country' value=user.country)
+                  input.form-control(type='text', name='country', value=user.country)
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='mail') Adresse Email
-                  input.form-control(type='text', name='email', disabled='disabled' value=user.email)
+                  input.form-control(type='text', name='email', disabled='disabled', value=user.email)
             .row
               .col-md-offset-2.col-md-6
                 .form-group

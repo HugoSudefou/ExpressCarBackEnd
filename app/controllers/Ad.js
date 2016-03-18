@@ -49,11 +49,10 @@ var Ads = {
 
             })
             .then(function () {
-                res.redirect('/index')
+                res.redirect('/users/profil')
             })
             .catch(error => {
                 console.error(error);
-                console.log("vhgvhgv");
                 res.render('add', {error: error})
             });
     },
