@@ -57,10 +57,15 @@ var Ads = {
 
 
     search: function (req, res) {
+        error = [];
         console.log('OY');
         var ads;
         var userSearch = req.body;
         console.log(userSearch);
+
+        if(userSearch.object != "search" || userSearch != "offer"){
+            error.push("Veuillez ne pas changer les valeurs");
+        }
         if (userSearch.object == "search") {
             var objectToFind = "offer";
         } else {
@@ -95,11 +100,11 @@ var Ads = {
                         });
                     // }
 
-                }).then(res.render('index'))
-                    .catch(error => {
+                }, function(res){res.render('index')});
+                    /*catch(error => {
                         console.error(error);
                         res.render('rechA')
-                    });
+                    });*/
             } else {
                 console.log('notFound');
                 res.render('rechA');

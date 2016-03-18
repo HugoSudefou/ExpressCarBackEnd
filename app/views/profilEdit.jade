@@ -34,17 +34,17 @@ html(lang='en')
       .row
         .col-sm-offset-3.col-md-8
           form(action='updateProfil', method='post', style='text-align:center')
-            input(type='hidden', name='_csrf', value='csrf')
+            input(type='hidden', name='_csrf', value=csrf)
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='firstName') Nom
-                  input.form-control(type='text', name='name', disabled='disabled' value=user.name)
+                  input.form-control(type='text', name='name', disabled='disabled', value= user.name )
             .row
               .col-md-offset-2.col-md-6
                 .form-group
                   label(for='lastName') Prénom
-                  input.form-control(type='text', name='firstName', disabled='disabled' value=user.firstName)
+                  input.form-control(type='text', name='firstName', disabled='disabled', value= user.firstName)
             .row
               .col-md-offset-2.col-md-6
                 .form-group

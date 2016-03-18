@@ -33,7 +33,7 @@ html(lang='en')
         div(style='text-align:center')
           h2 Sign up
         form.form-horizontal(action='/signup', name='signup', role='form', method='post', accept-charset='utf-8')
-          input(type='hidden', name='_csrf', value='csrf')
+          input(type='hidden', name='_csrf', value= csrf)
           .row
             .col-md-offset-2.col-md-3
               .form-group

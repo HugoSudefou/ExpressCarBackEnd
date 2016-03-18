@@ -34,7 +34,7 @@ html(lang='en')
           .col-md-offset-4.col-md-4
             h2(style='text-align:center') Sign in
             form.form-horizontal(action='/signin', name='login', role='form', method='post', accept-charset='utf-8')
-              input(type='hidden', name='_csrf', value= 'csrf')
+              input(type='hidden', name='_csrf', value=csrf)
               .form-group
                 .col-md-15
                   input#UserUsername.form-control(name='email', placeholder='Login', type='text', style='text-align:center')
