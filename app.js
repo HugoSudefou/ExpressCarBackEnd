@@ -6,27 +6,53 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
+var Store = require('connect-mongo')(session);
 //var csrf = require('csurf');
-var routes = require('./app/routes/index');
-var users = require('./app/routes/users');
-var ad = require('./app/routes/ad');
+
 
 var app = express();
-/*app.use(csrf());
-app.use(function(req,res, next){
-   res.locals.csrf = req.csrfToken();
-    res.locals.session = req.session;
-    next();
-});*/
+// view engine setup
+app.set('views', path.join(__dirname, 'app/views'));
+app.set('view engine', 'jade');
+
+mongoose.connect('mongodb://localhost/bdd', function (err) {
+    if (err) {
+        throw err;
+    }
+});
+
+
+
 app.use(session({
+    store: new Store({mongooseConnection:mongoose.connection}),
     secret: 'secret',
     resave: false,
     saveUninitialized: true
 }));
 
-// view engine setup
-app.set('views', path.join(__dirname, 'app/views'));
-app.set('view engine', 'jade');
+
+//app.use(lusca({
+//    csrf: true,
+//    csp: {/* ... */},
+//    xframe: 'SAMEORIGIN',
+//    p3p: 'ABCDEF',
+//    hsts: {maxAge: 31536000, includeSubDomains: true, preload: true},
+//    xssProtection: true
+//}));
+//
+/*app.use(csrf());
+app.use(function (req, res, next) {
+   res.locals.csrf = req.csrfToken();
+   res.locals.session = req.session;
+   next();
+});*/
+
+
+var routes = require('./app/routes/index');
+var users = require('./app/routes/users');
+var ad = require('./app/routes/ad');
+
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -71,12 +97,6 @@ app.use(function (err, req, res, next) {
     });
 });
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-mongoose.connect('mongodb://localhost/bdd', function (err) {
-    if (err) {
-        throw err;
-    }
-});
 
 
 module.exports = app;

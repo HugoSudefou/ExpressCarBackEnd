@@ -10,7 +10,7 @@ html(lang='en')
     link(rel='icon', href='../../favicon.ico')
     title CARea
     // Bootstrap core CSS
-    link(href='../Stylesheets/bootstrap/bootstrap.css', rel='stylesheet')
+    link(href='../stylesheets/bootstrap/bootstrap.css', rel='stylesheet')
     script(src='https://code.jquery.com/jquery-1.11.3.min.js')
     script(src='Js/bootstrap.js')
     // jQuery (necessary for Bootstrap's JavaScript plugins)
@@ -39,7 +39,7 @@ html(lang='en')
             br
             br
             form.form-horizontal(action='/signin', name='login', role='form', method='post', accept-charset='utf-8')
-              input(type='hidden', name='_csrf', value= 'csrf')
+              input(type='hidden', name='_csrf', value=csrf)
               .form-group
                 .col-md-15
                   input#UserUsername.form-control(name='email', placeholder='Login', type='text', style='text-align:center')
