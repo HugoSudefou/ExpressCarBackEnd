@@ -32,6 +32,7 @@ function completeAddress(user) {
 
 var Users = {
     create: function (req, res) {
+        error = [];
         const user = req.body;
 
         User.findOne({'email': user.email}, function (err, userInBase) {
@@ -85,6 +86,7 @@ var Users = {
     },
 
     signIn: function (req, res) {
+        error = [];
         User.findOne({'email': req.body.email}, function (err, user) {
             if (user) {
                 user.comparePassword(req.body.password, function (err, isMatch) {
@@ -122,6 +124,7 @@ var Users = {
     },
 
     update: function(req, res) {
+        error = [];
         var user = req.body;
         var userToUpdate;
         User.findOne({email: req.session.email}, function (err, userRequest) {
@@ -166,11 +169,13 @@ var Users = {
                 })
                 .catch(error => {
                     console.error(error);
-                    res.render("profilEdit", {title: "CaRea", user: user, error: error})
+                    console.log(user);
+                    res.render("profilEdit", {title: "CaRea", user: userToUpdate, error: error})
                 });
         } else {
             console.log(error);
-            res.render("profilEdit", {title: "CaRea", user: user, error: error})
+            console.log(user);
+            res.render("profilEdit", {title: "CaRea", user: userToUpdate, error: error})
         }
     }
 };
