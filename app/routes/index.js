@@ -11,6 +11,7 @@ function isNotClient(req, res, next) {
         next();
     }
 }
+
 /* GET home page. */
 
 router.get('/', Files.index);

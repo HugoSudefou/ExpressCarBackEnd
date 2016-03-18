@@ -19,10 +19,6 @@ var Files = {
       res.render('add', {session: req.session.isAuthentificated})
     },
 
-    add: function(req, res){
-      res.render('add')
-    },
-
     signIn: function(req,res){
         res.render('signin', {session: req.session.isAuthentificated});
     },
@@ -39,7 +35,7 @@ var Files = {
     },
 
     search: function(req, res){
-      res.render('rechA', {session: req.session.isAuthentificated)
+      res.render('rechA', {session: req.session.isAuthentificated})
     }
 };
 
