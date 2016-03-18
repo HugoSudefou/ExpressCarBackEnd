@@ -58,7 +58,7 @@ a {
 }
 
 p {
-    color: white;
+    color: black;
 }
 
 .list-group {
@@ -135,9 +135,7 @@ p {
     margin-left: 10px !important;
 }
 
-.marg-construct {
-    margin-top: 20%;
-}
+.marg-construct {     margin-top: 20%; }
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */

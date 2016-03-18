@@ -31,9 +31,7 @@ html(lang='en')
     .container.marketing.marg-nav
       .row
         div(style='text-align:center')
-          p
-          h1 Sign up
-          p
+          h2 Sign up
         form.form-horizontal(action='/signup', name='signup', role='form', method='post', accept-charset='utf-8')
           input(type='hidden', name='_csrf', value='csrf')
           .row
@@ -89,7 +87,7 @@ html(lang='en')
                 input.form-control(type='text', maxlenght='20', placeholder='Adresse',name='address', aria-describedby='basic-addon1', value=form.address)
           .row
             .col-md-offset-5.col-md-1
-              button.btn.btn-success.btn-fat(type='Submit') Submit
+              button.btn.btn-success.btn-fat(type='Submit') Submits
     .footer-p
       footer#footer.site-footer
         section.site-footer-bottom

@@ -10,7 +10,7 @@ html(lang='en')
     link(rel='icon', href='../../favicon.ico')
     title CARea
     // Bootstrap core CSS
-    link(href='../Stylesheets/bootstrap/bootstrap.css', rel='stylesheet')
+    link(href='../stylesheets/bootstrap/bootstrap.css', rel='stylesheet')
     script(src='https://code.jquery.com/jquery-1.11.3.min.js')
     script(src='app.js')
     // jQuery (necessary for Bootstrap's JavaScript plugins)
@@ -20,18 +20,10 @@ html(lang='en')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
     // API Google Maps
     script(src='http://maps.googleapis.com/maps/api/js')
-    script.
-      function initialize() {
-      var mapProp = {
-      center:new google.maps.LatLng(48.8566140, 2.3522219),
-      zoom:12,
-      mapTypeId:google.maps.MapTypeId.ROADMAP
-      };
-      var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
+
+      
     // Custom styles for this template
-    link(rel='stylesheet', type='text/css', href='../Stylesheets/Style.css')
+    link(rel='stylesheet', type='text/css', href='../stylesheets/Style.css')
   //
     NAVBAR
     ==================================================
@@ -40,17 +32,15 @@ html(lang='en')
       include ./navbar_connect.jade
     else
       include ./navbar_unconnect.jade
-      .container-fluid.marg-nav
+    .container-fluid.marg-nav
       .row
         .col-sm-12
-          h1(style='text-align:center;color:black') CARea
+          h1(style='text-align:center;color:black') #{ville || '' }
     .container-fluid
       .row
         .col-sm-12
           h3(style='text-align:center') Annonces proche de vous
     // Corps de présentation
-    br
-    br
     .container-fluid
       .row
         .col-sm-6
@@ -67,7 +57,7 @@ html(lang='en')
                   |                                     superAmi@carea.com
                   br
                 p.col-xs-6
-                  | le 02/05/16
+                  | le 02/05/16é
                   br
                   |                                     à 13h30
                   br
@@ -86,7 +76,7 @@ html(lang='en')
             a.list-group-item(href='#') Item 11
         .container-fluid
           .col-sm-6
-            #googleMap.img-responsive(style='width:100%;height:600px')
+            #map.img-responsive(style='width:100%;height:600px')
     br
     br
     br
