@@ -1,0 +1,48 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='../../favicon.ico')
+    title CARea
+    // Bootstrap core CSS
+    link(href='../stylesheets/bootstrap/bootstrap.css', rel='stylesheet')
+    script(src='https://code.jquery.com/jquery-1.11.3.min.js')
+    script(src='Javascript/bootstrap/bootstrap.js')
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    // Include all compiled plugins (below), or include individual files as needed
+    // Latest compiled and minified JavaScript
+    script(src='Javascript/bootstrap/bootstrap.min.js')
+    // Custom styles for this template
+    link(rel='stylesheet', type='text/css', href='../stylesheets/Style.css')
+  //
+    NAVBAR
+    ==================================================
+  body
+    if session
+      include ./navbar_connect.jade
+    else
+      include ./navbar_unconnect.jade
+    .container-fluid.marg-nav
+      .row
+        .col-sm-12
+          video#gif.img-responsive(controls='', src='../images/teaser.mov')
+    // Corps de présentation
+    footer#footer.site-footer
+      section.site-footer-bottom
+        ul.display
+          li.dispi
+            ul.dispi
+              li.dispi
+                | ©2016 CARea
+                a  
+              li.dispi
+                a(href='/contruc') Legal Notice
+                a  
+              li.dispi
+                a(href='/faq') FAQ

@@ -2,7 +2,7 @@
 
 body {
     
-    background-color: #FEFEE2;
+    background-color: #606D66;
 }
 .main {
     background: none; 
@@ -38,10 +38,14 @@ h4 {
 }
 h2 {
 
-    color: #101010;
+    color: #40D47E;
 }
 h1 {
     color: black;
+}
+
+h5 {
+    color: white;
 }
 
 form {
@@ -51,6 +55,10 @@ form {
 a {
 
     color:#1ABC9C;
+}
+
+p {
+    color: white;
 }
 
 .list-group {
@@ -116,6 +124,10 @@ a {
 
 .marg-l {
     margin-left: 10px !important;
+}
+
+.marg-construct {
+    margin-top: 20%;
 }
 
 /* RESPONSIVE CSS

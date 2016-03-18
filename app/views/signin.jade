@@ -12,7 +12,7 @@ html(lang='en')
     // Bootstrap core CSS
     link(href='../stylesheets/bootstrap/bootstrap.css', rel='stylesheet')
     script(src='https://code.jquery.com/jquery-1.11.3.min.js')
-    script(src='Js/bootstrap.js')
+    script(src='../javascript/bootstrap.js')
     // jQuery (necessary for Bootstrap's JavaScript plugins)
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
     // Include all compiled plugins (below), or include individual files as needed
@@ -46,9 +46,8 @@ html(lang='en')
               .form-group
                 .col-md-15
                   input#UserPassword.form-control(name='password', placeholder='Password', type='password', style='text-align:center')
-              br
               .form-group
-                .col-md-15
+                .col-md-offset-4.col-md-15
                   input.btn.btn-success.btn-fat(type='submit', value='Connect')
     .footer-p
       footer#footer.site-footer
