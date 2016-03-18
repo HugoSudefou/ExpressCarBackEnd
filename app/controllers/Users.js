@@ -33,7 +33,7 @@ function completeAddress(user) {
 var Users = {
     create: function (req, res) {
         const user = req.body;
-        console.log(user);
+
         User.findOne({'email': user.email}, function (err, userInBase) {
             if (userInBase) {
                 error.push("l'adresse email est déja utilisé");
@@ -63,6 +63,7 @@ var Users = {
                 Geoloc.getLocalisationData(address)
                     .then(locData => {
                         Object.assign(user, locData);
+                        console.log(user);
                         return User(user).save();
                     })
                     .then(savedUser => {
@@ -89,6 +90,7 @@ var Users = {
                 user.comparePassword(req.body.password, function (err, isMatch) {
                     if (isMatch) {
                         req.session.isAuthentificated = true;
+                        // permet de pouvoir via un findOne de recuperer les données de l'utilisateur dans la base
                         req.session.email = user.email;
                         //Object.assign(req.session, user);
                         res.redirect('/users/profil')
@@ -114,7 +116,7 @@ var Users = {
     viewProfil: function (req, res) {
         User.findOne({email: req.session.email}, function (err, user) {
             if (user) {
-                res.render('profil', {user: user});
+                res.render('profil', {user: user, session: req.session.isAuthentificated});
             }
         });
     },
@@ -171,7 +173,5 @@ var Users = {
             res.render("profilEdit", {title: "CaRea", user: user, error: error})
         }
     }
-
 };
-
 module.exports = Users;

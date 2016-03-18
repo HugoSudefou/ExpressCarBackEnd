@@ -24,33 +24,11 @@ html(lang='en')
     NAVBAR
     ==================================================
   body
-    .navbar-wrapper
-      .container
-        nav.navbar.navbar-inverse.navbar-static-top
-          .container
-            .navbar-header
-              button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-                span.sr-only Toggle navigation
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-              a.navbar-brand(href='/index') Carea
-            #navbar.navbar-collapse.collapse
-              ul.nav.navbar-nav
-                li
-                  a(href='/about') A propos / About
-              ul.nav.navbar-nav.navbar-right
-                li
-                  a(href='/signup')
-                    span.glyphicon.glyphicon-user
-                    |  S'inscrire / Sign up
-                li
-                  a(href='/signin')
-                    span.glyphicon.glyphicon-log-in
-                    |  Se connecter / Sign in
-    br
-    br
-    .container-fluid
+    if session
+      include ./navbar_connect.jade
+    else
+      include ./navbar_unconnect.jade
+    .container-fluid.marg-nav
       .row
         .col-sm-12
           h1(style='text-align:center') CAREA
@@ -81,21 +59,17 @@ html(lang='en')
       | se trouvent à proximité de votre lieu de résidence. En bref, soit vous voyagez avec des personnes
       br
       | de votre entourage,soit avec des personnes de votre quartier.
-    br
-    br
-    br
-    footer
-      p.pull-right
-        a(href='#') Back to top
-      p(style='text-align:center')
-        | © 2016 CARea · 
-        a(href='/construc') Privacy
-        |  · 
-        a(href='index_faq.html') FAQ
-    script(src='https://code.jquery.com/jquery-1.11.3.min.js')
-    script(src='Js/bootstrap.js')
-    // jQuery (necessary for Bootstrap's JavaScript plugins)
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
-    // Include all compiled plugins (below), or include individual files as needed
-    // Latest compiled and minified JavaScript
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+    .footer-p
+      footer#footer.site-footer
+        section.site-footer-bottom
+          ul.display
+            li
+              ul
+                li.dispi
+                  | ©2016 CARea
+                  a
+                li.dispi
+                  a(href='/construct') Legal Notice
+                  a
+                li.dispi
+                  a(href='/faq') FAQ

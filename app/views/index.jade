@@ -7,10 +7,9 @@ html(lang='en')
     // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
     meta(name='description', content='')
     meta(name='author', content='')
-    link(rel='icon', href='../../favicon.ico')
     title Carea
     // Bootstrap core CSS
-    link(href='../stylesheets/bootstrap/bootstrap.css', rel='stylesheet')
+    link(href='../stylesheets/bootstrap/bootstrap.min.css', rel='stylesheet')
     script(src='https://code.jquery.com/jquery-1.11.3.min.js')
     script(src='app.js')
     // jQuery (necessary for Bootstrap's JavaScript plugins)
@@ -23,97 +22,98 @@ html(lang='en')
   //
     Header picture
     ==================================================
-  .container-fluid
-    .row
-      .col-sm-12
-        img.img(src='../images/header_pic.jpg')
-        .container
-          .carousel-caption
-            p
-              a.btn.btn-secondary.btn-fat(href='/signup', role='button') Sign up today
-            p
-            h4
-              | You already have an account ?
-              a(href='/signin')  Sign in 
-            p
-  //
-    Marketing messaging and featurettes
-    ==================================================
-  // Wrap the rest of the page in another container to center all the content.
-  .container.marketing
-    // Three columns of text below the carousel
-    .row
-      .col-lg-4
-        img.img-circle(src='../images/amandine.jpg', alt='Generic placeholder image', width='140', height='140')
-        h2 Amandine (Marseille)
-        p
-          | Depuis que j'utilise CARea, je suis beaucoup plus proche de mes voisins ! C'est très convivial.
-      // /.col-lg-4
-      .col-lg-4
-        img.img-circle(src='../images/genevieve.jpg', alt='Generic placeholder image', width='140', height='140')
-        h2 Geneviève (Lyon)
-        p J'adore conduire, surtout quand je peux être utile à quelqu'un.
-      // /.col-lg-4
-      .col-lg-4
-        img.img-circle(src='../images/paul.jpg', alt='Generic placeholder image', width='140', height='140')
-        h2 Paul (Paris)
-        p
-          | C'est simple et économique, on rend des petits services en gagnant un peu d'argent, ça rembourse l'essence !
-      // /.col-lg-4
-    // /.row
+  body
+    .container-fluid
+      .row
+        .col-sm-12
+          img.img(src='../images/header_pic.png')
+          .container
+            .carousel-caption
+              p
+                a.btn.btn-secondary.btn-fat(href='/signup', role='button') Sign up today
+              p
+              h4
+                | You already have an account ?
+                a(href='/signin')  Sign in
+              p
     // START THE FEATURETTES
-    hr.featurette-divider
-    .row.featurette
-      .col-md-7
-        h2.featurette-heading
-          | Joindre l'utile à l'agreable
-          span.text-muted
-        p.lead
-          | -Les objectifs de CARea sont de s’inscrire dans une démarche
-          br
-          |                 éco-responsable dont les bénéfices attendus seront à la fois
-          br
-          |                 économiques (baisse des coûts imputés aux transports par 2, 
-          br
-          |                 3 voire 4 sur les trajets domicile/travail/commerces), 
-          br
-          |                 sociaux (amélioration des conditions de vie et du dialogue 
-          br
-          |                 social, tissage de liens social dans les quartiers). 
-          br
-          |                 -Bénéfices environnementaux (limitation des nuisances
-          br
-          |                 sonores, des gaz à effet de serre, réduction de la demande
-          br
-          |                 énergétique, réduction des besoins en espace de stationnement).
-    hr.featurette-divider
-    .row.featurette
-      .col-md-7.col-md-push-5
-        h2.featurette-heading
-          | Vraiment Friendly* ! 
-          span.text-muted
-        p.lead
-          | Notre principal objectif est de favoriser la diminution des frais de déplacement des usagers, d’améliorer leur pouvoir de 
-          br
-          |             se déplacer en toute occasion, de créer des réseaux de solidarité. Notre base de données et nos conseillers en mobilités sont là pour les y aider.
-        h5 *Friendly = amical
-  // /END THE FEATURETTES
-  br
-  br
-  br
-  footer#footer.site-footer
-    section.fluid-container
-      .site-footer-top
-    section.site-footer-bottom
-      ul.display
-        li.dispi
-          ul.dispi
+    .container-fluid
+      .row
+        .col-sm-12
+          h2.featurette-heading(style='text-align:center')
+            | Joindre l'utile à l'agreable
+            span.text-muted
+          p.lead(style='text-align:center')
+            | -Les objectifs de CARea sont de s’inscrire dans une démarche
+            br
+            |                         éco-responsable dont les bénéfices attendus seront à la fois
+            br
+            |                         économiques (baisse des coûts imputés aux transports par 2,
+            br
+            |                         3 voire 4 sur les trajets domicile/travail/commerces),
+            br
+            |                         sociaux (amélioration des conditions de vie et du dialogue
+            br
+            |                         social, tissage de liens social dans les quartiers).
+            br
+            |                         -Bénéfices environnementaux (limitation des nuisances
+            br
+            |                         sonores, des gaz à effet de serre, réduction de la demande
+            br
+            |                         énergétique, réduction des besoins en espace de stationnement).
+    .container-fluid
+      .row
+        .col-sm-12
+          h2.featurette-heading(style='text-align:center')
+            | Vraiment Friendly* !
+            span.text-muted
+          p.lead(style='text-align:center')
+            | Notre principal objectif est de favoriser la diminution des frais de déplacement des usagers, d’améliorer leur pouvoir de
+            br
+            |                         se déplacer en toute occasion, de créer des réseaux de solidarité. Notre base de données et nos conseillers en mobilités sont là pour les y aider.
+          h5(style='text-align:center') *Friendly = amical
+    // /END THE FEATURETTES
+    br
+    br
+    br
+    //
+      Marketing messaging and featurettes
+      ==================================================
+    // Wrap the rest of the page in another container to center all the content.
+    .container.marketing
+      // Three columns of text below the carousel
+      .row
+        .col-lg-4
+          img.img-circle(src='../images/amandine.jpg', alt='Generic placeholder image', width='140', height='140')
+          h2 Amandine (Marseille)
+          p
+            | "Depuis que j'utilise CARea, je suis beaucoup plus proche de mes voisins ! C'est très convivial."
+        // /.col-lg-4
+        .col-lg-4
+          img.img-circle(src='../images/genevieve.jpg', alt='Generic placeholder image', width='140', height='140')
+          h2 Geneviève (Lyon)
+          p "J'adore conduire, surtout quand je peux être utile à quelqu'un."
+        // /.col-lg-4
+        .col-lg-4
+          img.img-circle(src='../images/paul.jpg', alt='Generic placeholder image', width='140', height='140')
+          h2 Paul (Paris)
+          p
+            | "C'est simple et économique, on rend des petits services en gagnant un peu d'argent, ça rembourse l'essence !"
+        // /.col-lg-4
+      // /.row
+      footer#footer.site-footer
+        section.fluid-container
+          .site-footer-top
+        section.site-footer-bottom
+          ul.display
             li.dispi
-              | ©2016 CARea
-              a  
-            li.dispi
-              a(href='#') Legal Notice
-              a  
-            li.dispi
-              a(href='Pages/index_faq.html') FAQ
-  // /.container
+              ul.dispi
+                li.dispi
+                  | ©2016 CARea
+                  a
+                li.dispi
+                  a(href='#') Legal Notice
+                  a
+                li.dispi
+                  a(href='/faq') FAQ
+// /.container

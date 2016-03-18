@@ -27,10 +27,6 @@ html(lang='en')
       include ./navbar_connect.jade
     else
       include ./navbar_unconnect.jade
-    br
-    br
-    br
-    br
     .container.marketing
       .row
         form.form-horizontal(action='add', name='add', role='form', method='post', accept-charset='utf-8')
@@ -63,16 +59,17 @@ html(lang='en')
           .row
             .col-md-offset-5.col-md-3
               input.btn.btn-success.btn.btn-success(type='submit' value='Create')
-    footer#footer.site-footer
-      section.site-footer-bottom
-        ul.display
-          li.dispi
-            ul.dispi
-              li.dispi
-                | ©2016 CARea
-                a  
-              li.dispi
-                a(href='#') Legal Notice
-                a  
-              li.dispi
-                a(href='index_faq.html') FAQ
+    .footer-p
+      footer#footer.site-footer
+        section.site-footer-bottom
+          ul.display
+            li
+              ul
+                li.dispi
+                  | ©2016 CARea
+                  a
+                li.dispi
+                  a(href='/construct') Legal Notice
+                  a
+                li.dispi
+                  a(href='/faq') FAQ
