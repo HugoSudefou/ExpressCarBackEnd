@@ -19,6 +19,10 @@ var Files = {
       res.render('add', {session: req.session.isAuthentificated})
     },
 
+    add: function(req, res){
+      res.render('add')
+    },
+
     signIn: function(req,res){
         res.render('signin', {session: req.session.isAuthentificated});
     },
@@ -27,20 +31,15 @@ var Files = {
         res.render('signup', {form:{}, session: req.session.isAuthentificated});
     },
 
-    annonce: function(req, res){
-      res.render('annonce', {session: req.session.isAuthentificated})
-    },
-
-    rechA: function(req, res){
-      res.render('rechA', {session: req.session.isAuthentificated})
-    },
-
     updateProfil: function(req, res){
         User.findOne({email: req.session.email}).exec()
             .then(user =>{
                 res.render('profilEdit',{user: user, session: req.session.isAuthentificated})
             }).catch(error => console.log(error))
+    },
 
+    search: function(req, res){
+      res.render('rechA', {session: req.session.isAuthentificated)
     }
 };
 

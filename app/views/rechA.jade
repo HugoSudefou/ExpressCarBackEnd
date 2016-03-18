@@ -48,27 +48,27 @@ html(lang='en')
                 .form-group
                   label(for='voiture') Voiture
                   select#voiture.form-control(name='voiture')
-                    option(value='rechV') Je recherche une voiture
-                    option(value='propV') Je propose une voiture
+                    option(value='search') Je recherche une voiture
+                    option(value='offer') Je propose une voiture
             .row
               .col-md-offset-2.col-md-3
                 .form-group
                   label(for='timeD') Heure de départ
-                  input.form-control(type='time', name='timeD')
+                  input.form-control(type='time', name='beginHour')
               .col-md-offset-2.col-md-3
                 .form-group
                   label(for='timeA') Heure d'arrivée
-                  input.form-control(type='time', name='timeA')
+                  input.form-control(type='time', name='lastHour')
             .row
               .col-md-offset-2.col-md-8
                 .form-group
                   label(for='adresseD') Adresse de départ
-                  input.form-control(type='text', name='adresseD', disabled='disabled')
+                  input.form-control(type='text', name='start', disabled='disabled')
             .row
               .col-md-offset-2.col-md-8
                 .form-group
-                  label(for='adresseA') Ville d'arrvée
-                  input.form-control(type='text', name='postalCode', placeholder='Code postal')
+                  label(for='adresseA') Ville d'arrivée
+                  input.form-control(type='text', name='end', placeholder='Ville')
             .container-fluid
               .row
                 .col-sm-12
@@ -86,9 +86,9 @@ html(lang='en')
               ul
                 li.dispi
                   | ©2016 CARea
-                  a  
+                  a
                 li.dispi
                   a(href='/construct') Legal Notice
-                  a  
+                  a
                 li.dispi
                   a(href='/faq') FAQ

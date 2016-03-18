@@ -13,21 +13,20 @@ function isClient(req, res, next){
 }
 
 /* GET users listing. */
-router.post('/add', Ad.create);
+
 
 //router.post('/ad', Ad.search);
 
-router.get('/add', function(req,res){
-	console.log('Affiche page : Oui');
-	res.render('add');
-});
+router.get('/search', isClient, Files.search);
+
+router.post('/search', isClient, Ad.search);
+
+router.get('/add',isClient,Files.add);
+router.post('/add',isClient, Ad.create);
 /* GET users listing. */
 router.get('/profil', isClient, Users.viewProfil);
 router.get('/updateProfil', Files.updateProfil);
 router.post('/updateProfil', isClient, Users.update);
 router.get('/signout', isClient, Users.signOut);
-router.get('/annonce', isClient, Files.annonce);
-router.get('/add', isClient, Files.add);
-router.get('/rechA', isClient, Files.rechA);
 
 module.exports = router;

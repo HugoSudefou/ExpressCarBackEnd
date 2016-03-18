@@ -6,13 +6,18 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
-
+//var csrf = require('csurf');
 var routes = require('./app/routes/index');
 var users = require('./app/routes/users');
 var ad = require('./app/routes/ad');
 
 var app = express();
-
+/*app.use(csrf());
+app.use(function(req,res, next){
+   res.locals.csrf = req.csrfToken();
+    res.locals.session = req.session;
+    next();
+});*/
 app.use(session({
     secret: 'secret',
     resave: false,
@@ -38,6 +43,7 @@ app.use('/ad', ad);
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
+    //res.render('404');
     next(err);
 });
 
