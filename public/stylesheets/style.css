@@ -66,12 +66,12 @@ a {
     padding-right: 0px;
     padding-left: 0px;
 }
-.col-sm-offset-3.col-md-8 {
+.add {
 
     position: relative;
     top:50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(50%);
+    -ms-transform: translateY(50%);
     transform: translateY(-50%);
 
 
